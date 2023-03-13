@@ -5,6 +5,14 @@ body {
     box-sizing: border-box;
     background-color: rgb(18,18,18);
     font-family: "Montserrat";
+    color: white;
+}
+
+.mainWrapper {
+    height: 10000px;
+    margin: 0px 15% 0px 15%;
+    /* border: solid red 3px; */
+    display: flex;
 }
 
 a {
@@ -13,13 +21,18 @@ a {
 }
 
 header {
+    padding: 0px 10% 0px 10%;
     height: 70px;
     width: auto;
     display: flex;
+    background-color: rgb(18,18,18);
     justify-content: space-around;
     color: white;
     align-content: center;
     align-items: center;
+    position: sticky;
+    top: 0px;
+    border-bottom: solid rgb(129, 129, 129) 1px;
 }
 
 .search {
@@ -59,7 +72,10 @@ input:focus {
 
 
 hr {
-    background-color: white;
+    height: 1px;
+    background-color: rgb(77, 77, 77);
+    border: none;
+    margin: 25px 0px 25px 0px;
 }
 
 #upload {
@@ -77,4 +93,139 @@ hr {
 
 #upload:hover {
     background-color: rgb(35, 35, 35);
+}
+
+#login {
+    height: 40px;
+    width: 120px;
+    background-color: #EF2950;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+#login:hover {
+    background-color: #cb2445;
+}
+
+#options {
+    height: 25px;
+    width: auto;
+}
+
+#right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#right img {
+    cursor: pointer;
+}
+
+.sideNav {
+    margin-left: 5px;
+    height: 1000px;
+    width: 33%;
+    /* border: solid green 2px; */
+}
+
+.mainContent {
+    height: 100%;
+    width: 66%;
+    /* border: solid blue 2px; */
+}
+
+
+
+.pages span img {
+    height: 30px;
+    width: auto;
+    display: inline-block;
+}
+
+.pages span {
+    display: flex;
+    gap: 20px;
+    justify-content: left;
+    align-items: center;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+
+.pages span:hover{
+    color: #EF2950;
+}
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sideNav p {
+    color:rgb(129, 129, 129);
+}
+
+.darkButton {
+    height: 40px;
+    width: 250px;
+    background-color: #3a3030;
+    border: solid #EF2950 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #EF2950;
+    transition: all 200ms ease-in-out;
+}
+
+.darkButton:hover {
+    background-color: #311a1c;
+}
+
+strong {
+    font-weight: 300;
+}
+
+#userName p {
+    margin: 3px;
+    color: white;
+}
+
+.suggestedAccount {
+    display: flex; 
+    align-items: center; 
+    gap: 20px;
+}
+
+#discoverTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#tag {
+    height: 10px;
+    width: auto;
+    padding: 10px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 15px;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    transition: all 200ms ease-in-out;
+}
+
+
+#tag p {
+    color: white;
+}
+
+#tag:hover {
+    background-color: rgb(30, 30, 30);
 }
