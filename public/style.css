@@ -13,6 +13,7 @@ a {
 }
 
 header {
+    margin: 0px 10% 0px 10%;
     height: 70px;
     width: auto;
     display: flex;
@@ -59,7 +60,10 @@ input:focus {
 
 
 hr {
-    background-color: white;
+    height: 1px;
+    background-color: rgb(129, 129, 129);
+    border: none;
+    margin-top: 3px;
 }
 
 #upload {
@@ -77,4 +81,37 @@ hr {
 
 #upload:hover {
     background-color: rgb(35, 35, 35);
+}
+
+#login {
+    height: 40px;
+    width: 120px;
+    background-color: #EF2950;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+#login:hover {
+    background-color: #cb2445;
+}
+
+#options {
+    height: 25px;
+    width: auto;
+}
+
+#right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#right img {
+    cursor: pointer;
 }
