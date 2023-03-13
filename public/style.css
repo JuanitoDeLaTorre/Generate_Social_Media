@@ -5,6 +5,14 @@ body {
     box-sizing: border-box;
     background-color: rgb(18,18,18);
     font-family: "Montserrat";
+    color: white;
+}
+
+.mainWrapper {
+    height: 10000px;
+    margin: 0px 15% 0px 15%;
+    border: solid red 3px;
+    display: flex;
 }
 
 a {
@@ -13,14 +21,18 @@ a {
 }
 
 header {
-    margin: 0px 10% 0px 10%;
+    padding: 0px 10% 0px 10%;
     height: 70px;
     width: auto;
     display: flex;
+    background-color: rgb(18,18,18);
     justify-content: space-around;
     color: white;
     align-content: center;
     align-items: center;
+    position: sticky;
+    top: 0px;
+    border-bottom: solid rgb(129, 129, 129) 1px;
 }
 
 .search {
@@ -61,9 +73,9 @@ input:focus {
 
 hr {
     height: 1px;
-    background-color: rgb(129, 129, 129);
+    background-color: rgb(77, 77, 77);
     border: none;
-    margin-top: 3px;
+    margin: 25px 0px 25px 0px;
 }
 
 #upload {
@@ -114,4 +126,64 @@ hr {
 
 #right img {
     cursor: pointer;
+}
+
+.sideNav {
+    margin-left: 5px;
+    height: 1000px;
+    width: 33%;
+    border: solid green 2px;
+}
+
+.mainContent {
+    height: 100%;
+    width: 66%;
+    border: solid blue 2px;
+}
+
+
+
+.pages span img {
+    height: 30px;
+    width: auto;
+    display: inline-block;
+}
+
+.pages span {
+    display: flex;
+    gap: 20px;
+    justify-content: left;
+    align-items: center;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+
+.pages span:hover{
+    color: #EF2950;
+}
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sideNav p {
+    color:rgb(129, 129, 129);
+}
+
+.darkButton {
+    height: 40px;
+    width: 250px;
+    background-color: #3a3030;
+    border: solid #EF2950 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #EF2950;
+    transition: all 200ms ease-in-out;
+}
+
+.darkButton:hover {
+    background-color: #311a1c;
 }
