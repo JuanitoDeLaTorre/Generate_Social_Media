@@ -11,7 +11,7 @@ body {
 .mainWrapper {
     height: 10000px;
     margin: 0px 15% 0px 15%;
-    border: solid red 3px;
+    /* border: solid red 3px; */
     display: flex;
 }
 
@@ -132,13 +132,13 @@ hr {
     margin-left: 5px;
     height: 1000px;
     width: 33%;
-    border: solid green 2px;
+    /* border: solid green 2px; */
 }
 
 .mainContent {
     height: 100%;
     width: 66%;
-    border: solid blue 2px;
+    /* border: solid blue 2px; */
 }
 
 
@@ -186,4 +186,46 @@ hr {
 
 .darkButton:hover {
     background-color: #311a1c;
+}
+
+strong {
+    font-weight: 300;
+}
+
+#userName p {
+    margin: 3px;
+    color: white;
+}
+
+.suggestedAccount {
+    display: flex; 
+    align-items: center; 
+    gap: 20px;
+}
+
+#discoverTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#tag {
+    height: 10px;
+    width: auto;
+    padding: 10px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 15px;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    transition: all 200ms ease-in-out;
+}
+
+
+#tag p {
+    color: white;
+}
+
+#tag:hover {
+    background-color: rgb(30, 30, 30);
 }
