@@ -59,7 +59,10 @@ input:focus {
 
 
 hr {
-    background-color: white;
+    background-color: rgb(77, 77, 77);
+    height: 2px;
+    border-bottom: none;
+    border: none;
 }
 
 #upload {
