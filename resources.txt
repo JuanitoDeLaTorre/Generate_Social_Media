@@ -1,2 +1,6 @@
 search icon = https://www.flaticon.com/free-icon/search_8915520?term=search&page=1&position=4&origin=search&related_id=8915520
 - Ryan Adryawan
+
+TikTok icons: https://www.freepik.com/free-vector/tiktok-app-interface-with-icons-collection_7943526.htm"
+
+LIVE button: https://www.flaticon.com/free-icon/video_8771157?term=camera&page=1&position=60&origin=search&related_id=8771157

@@ -1,12 +1,15 @@
 <%- include('./head.ejs') %>
+
 <header>
     <a href=""><h2>GENERATE</h2></a>
     <div class="search">
-        <input type="text">
-        <img src="/images/searchlogo.png" alt="magnifying glass search logo">
+        <input type="text" placeholder="Search accounts, hashtags, etc...">
+        <a href=""><img src="/images/searchlogo.png" alt="magnifying glass search logo"></a>
     </div>
-    <button id = "upload">+ Upload</button>
-    <button id = "login">Log in</button>
-
+    <div id = "right">
+        <button id = "upload">+ Upload</button>
+        <button id = "login">Log in</button>
+        <a href=""><img id = "options" src="/images/options.png" alt="search option dots"></a>
+    </div>
 </header>
-<hr>
+
