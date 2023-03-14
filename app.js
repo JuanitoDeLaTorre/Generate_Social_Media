@@ -20,6 +20,18 @@ app.use(express.static("public"))
 app.use(methodOverride('_method'))
 app.use(express.json())
 
+//CREATE SESSION
+app.use(
+    session({
+        store: MongoStore.create({mongoUrl:process.env.GENERATE_DB}),
+        secret: "super secret",
+        resave: false,
+        saveUninitialized: false,
+        cookie: {maxAge: 1000 * 60 * 60 * 24 * 7}
+        
+    })
+)
+
 app.get('/', (req,res)=> {
     res.render("index.ejs")
 })

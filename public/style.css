@@ -73,17 +73,10 @@ input:focus {
 
 
 hr {
-<<<<<<< HEAD
-    background-color: rgb(77, 77, 77);
-    height: 2px;
-    border-bottom: none;
-    border: none;
-=======
     height: 1px;
     background-color: rgb(77, 77, 77);
     border: none;
     margin: 25px 0px 25px 0px;
->>>>>>> e85127ea242e8e5fee2581f114fb1b355ba6d139
 }
 
 #upload {
@@ -241,8 +234,6 @@ strong {
 #tag:hover {
     background-color: rgb(30, 30, 30);
 }
-<<<<<<< HEAD
-=======
 
 .contentTile {
     margin: 50px 0px 50px 0px;
@@ -340,4 +331,3 @@ form input, form label{
     height: 15px;
     width: auto;
 } */
->>>>>>> 7bb8fcb31865a2df2e6fb82f2a6781d0a0838211
