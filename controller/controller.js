@@ -14,3 +14,5 @@ router.get('/posts/:id', async (req, res) => {
         res.status(500).json({error: 'Failed to retrieve post'});
     }
 });
+
+//i am going to change you later, lets hope this removes all unnecessary folders
