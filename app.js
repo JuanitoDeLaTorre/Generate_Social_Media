@@ -3,7 +3,7 @@ const app = express()
 const methodOverride = require("method-override")
 const path = require("path")
 require("dotenv").config()
-const { Users } = require('./models')
+const { User } = require('./models')
 const axios = require("axios")
 const bcrypt = require("bcryptjs")
 const session = require("express-session")
@@ -31,7 +31,7 @@ app.get('/signUp', (req,res) => {
 app.post('/users/signUp', async (req,res,next)=> {
     try {
         console.log(req.body)
-        const newUser = await Users.create(req.body)
+        const newUser = await User.create(req.body)
         res.redirect('/')
     } catch(err) {
         console.log(err)
