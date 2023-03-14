@@ -5,14 +5,32 @@ const Post = require('../../models/post');
 const Like = require('../../models/likes');
 const Comment = require('../../models/comments');
 
-router.get('/posts/:id', async (req, res) => {
+//get all users
+router.get('/users', async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
-        res.render('post', { post });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({error: 'Failed to retrieve post'});
+        const users = await User.find();
+        res.render('users', { users });
+    } catch(err) {
+        console.log(err)
+        next()
     }
 });
 
-//i am going to change you later, lets hope this removes all unnecessary folders
+
+// render create a post screen
+router.get('/newContent', (req, res) => {
+    res.render('newPost.ejs');
+});
+//create a new post
+router.post('/posts', async (req, res) => {
+    try {
+        const post = await Post.create(req.body);
+        res.render('post', { post });
+    } catch(err) {
+        console.log(err)
+        next()
+    };
+})
+
+//update a post
+router.put
