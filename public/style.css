@@ -298,6 +298,23 @@ strong {
     color:rgb(226, 226, 226)
 }
 
+#signUpForm {
+    margin: 10% 0px 0px 30%;
+
+}
+
+form input, form label{
+    display: block;
+    margin: 15px;
+}
+
+#signUpForm input {
+    width: 200px;
+    border-radius: 30px;
+    border: solid grey 2px;
+    padding: 8px;
+}
+
 /* .circle {
     height: 50px;
     width: 50px;

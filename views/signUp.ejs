@@ -2,7 +2,7 @@
 
 <body>
     <div class="mainContent">
-        <form method = "POST" action="">
+        <form id = "signUpForm" method = "POST" action="/users/signUp">
             <label for="name">Name</label>
             <input type="text" name = "name">
 
@@ -13,7 +13,9 @@
             <input type="password" name = "password">
 
             <label for="profilePic">Profile Pic URL</label>
-            <input type="text" name = "profilePic">
+            <input type="file" name = "profilePic">
+
+            <input type="submit" value = "submit">
         </form>
     </div>
 </body>

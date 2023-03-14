@@ -3,6 +3,7 @@ const app = express()
 const methodOverride = require("method-override")
 const path = require("path")
 require("dotenv").config()
+const { Users } = require('./models')
 const axios = require("axios")
 const bcrypt = require("bcryptjs")
 const session = require("express-session")
@@ -21,6 +22,21 @@ app.use(express.json())
 
 app.get('/', (req,res)=> {
     res.render("index.ejs")
+})
+
+app.get('/signUp', (req,res) => {
+    res.render('signUp.ejs')
+})
+
+app.post('/users/signUp', async (req,res,next)=> {
+    try {
+        console.log(req.body)
+        const newUser = await Users.create(req.body)
+        res.redirect('/')
+    } catch(err) {
+        console.log(err)
+        next()
+    }
 })
 
 app.listen(PORT, (req,res)=> {
