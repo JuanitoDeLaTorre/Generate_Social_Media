@@ -33,12 +33,12 @@ app.use(
 )
 
 app.get('/', (req,res)=> {
-
+    console.log(req.session.currentUser?.username)
     res.render("index.ejs", { user: req.session.currentUser?.username })
 })
 
 app.get('/signUp', (req,res) => {
-    res.render('signUp.ejs')
+    res.render('signUp.ejs', { user: req.session.currentUser?.username })
 })
 
 app.post('/users/signUp', async (req,res,next)=> {
@@ -61,7 +61,7 @@ app.post('/users/signUp', async (req,res,next)=> {
 })
 
 app.get('/signIn', async (req,res,next)=> {
-    res.render('signIn.ejs')
+    res.render('signIn.ejs', { user: req.session.currentUser?.username })
 })
 
 app.post('/signIn', async (req,res,next)=> {
@@ -90,6 +90,11 @@ app.post('/signIn', async (req,res,next)=> {
         console.log(err)
         next()
     }
+})
+
+app.get('/logOut', (req,res,next) => {
+    req.session.destroy()
+    res.redirect('/')
 })
 
 app.listen(PORT, (req,res)=> {
