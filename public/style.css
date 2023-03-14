@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap');
 body {
     margin: 0;
     padding: 0;
@@ -33,6 +33,7 @@ header {
     position: sticky;
     top: 0px;
     border-bottom: solid rgb(129, 129, 129) 1px;
+    z-index: 100;
 }
 
 .search {
@@ -85,7 +86,7 @@ hr {
     border-radius: 5px;
     border: none;
     color: white;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-family: inherit;
     cursor: pointer;
     transition: all 200ms ease-in-out;
@@ -95,7 +96,7 @@ hr {
     background-color: rgb(35, 35, 35);
 }
 
-#login {
+.magentaButton {
     height: 40px;
     width: 120px;
     background-color: #EF2950;
@@ -108,7 +109,7 @@ hr {
     transition: all 200ms ease-in-out;
 }
 
-#login:hover {
+.magentaButton:hover {
     background-color: #cb2445;
 }
 
@@ -130,14 +131,18 @@ hr {
 
 .sideNav {
     margin-left: 5px;
-    height: 1000px;
+    height: 100vh;
     width: 33%;
+    overflow-y: scroll;
+    overflow: scroll;
     /* border: solid green 2px; */
 }
 
 .mainContent {
-    height: 100%;
+    margin: 0px 10% 0px 10%;
+    height: 100vh;
     width: 66%;
+    overflow: scroll;
     /* border: solid blue 2px; */
 }
 
@@ -189,7 +194,7 @@ hr {
 }
 
 strong {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 #userName p {
@@ -229,3 +234,83 @@ strong {
 #tag:hover {
     background-color: rgb(30, 30, 30);
 }
+
+.contentTile {
+    margin: 50px 0px 50px 0px;
+    width: 99%;
+    height: 80vh;
+    position: relative;
+}
+
+#follow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 30px;
+    padding: 3px;
+    font-size: 1.1em;
+}
+
+#videoPlaceholder {
+    height: 530px;
+    width: 300px;
+    margin: 20px 0px 30px 85px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.interactIcons {
+    display: inline-block;
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    position: relative;
+    
+}
+
+.interactIcons li img {
+    height: 50px;
+    width: auto;
+    padding: 5px;
+}
+
+.interactIcons li {
+    margin-bottom: 10px;
+}
+
+.interactIcons li:nth-child(3) {
+    margin-bottom: 40px;
+}
+
+.icons {
+    position: absolute;
+    left: 10px;
+    bottom: -10px;
+}
+
+.interactIcons li p {
+    height: auto;
+    width: auto;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+    font-size: 0.82em;
+    color:rgb(226, 226, 226)
+}
+
+/* .circle {
+    height: 50px;
+    width: 50px;
+    background-color: #3a3030;
+    border-radius: 100%;
+    background-image: url('/images/shareSolo.png'); */
+    /* background-attachment: fixed;
+    background-position: center; */
+    /* object-fit: cover; */
+    /* color: white;
+}
+
+.circle > img {
+    height: 15px;
+    width: auto;
+} */
