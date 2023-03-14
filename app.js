@@ -43,7 +43,9 @@ app.get('/signUp', (req,res) => {
 
 app.post('/users/signUp', async (req,res,next)=> {
     try {
-        const userInfo = req.body
+        const userInfo = {...req.body}
+
+        console.log(req.body)
 
         let salt = await bcrypt.genSalt(12)
 
@@ -51,7 +53,11 @@ app.post('/users/signUp', async (req,res,next)=> {
         userInfo.password = hash
 
         const newUser = await User.create(userInfo)
-        console.log(newUser)
+
+        req.session.currentUser = {
+            id: newUser._id,
+            username: userInfo.username
+        }
 
         res.redirect('/')
     } catch(err) {
