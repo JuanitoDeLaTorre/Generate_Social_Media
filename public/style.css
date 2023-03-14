@@ -98,7 +98,7 @@ hr {
 
 .magentaButton {
     height: 40px;
-    width: 120px;
+    width: auto;
     background-color: #EF2950;
     border-radius: 5px;
     border: none;

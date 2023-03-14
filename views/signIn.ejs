@@ -1,0 +1,14 @@
+<%- include('./partials/header.ejs') %>
+
+<body>
+    <div class="mainWrapper">
+        <form method = "POST" action="/signIn">
+            <label for="username">Username</label>
+            <input type="text" name = "username">
+
+            <label for="password">Password</label>
+            <input type="password" name = "password">
+            <button class = "magentaButton" type = "submit">Submit</button>
+        </form>
+    </div>
+</body>

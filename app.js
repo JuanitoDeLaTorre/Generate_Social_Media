@@ -33,7 +33,8 @@ app.use(
 )
 
 app.get('/', (req,res)=> {
-    res.render("index.ejs")
+
+    res.render("index.ejs", { user: req.session.currentUser?.username })
 })
 
 app.get('/signUp', (req,res) => {
@@ -42,8 +43,48 @@ app.get('/signUp', (req,res) => {
 
 app.post('/users/signUp', async (req,res,next)=> {
     try {
+        const userInfo = req.body
+
+        let salt = await bcrypt.genSalt(12)
+
+        const hash = await bcrypt.hash(userInfo.password, salt);
+        userInfo.password = hash
+
+        const newUser = await User.create(userInfo)
+        console.log(newUser)
+
+        res.redirect('/')
+    } catch(err) {
+        console.log(err)
+        next()
+    }
+})
+
+app.get('/signIn', async (req,res,next)=> {
+    res.render('signIn.ejs')
+})
+
+app.post('/signIn', async (req,res,next)=> {
+    try {
+        const loginInfo = req.body
         console.log(req.body)
-        const newUser = await User.create(req.body)
+        const foundUser = await User.findOne({username:loginInfo.username})
+
+        if(!foundUser) {
+            return res.redirect('/signUp')
+        }
+
+        const match = bcrypt.compare(loginInfo.password, foundUser.password)
+        console.log(match)
+        if(!match) return res.send("Email or password doesn't match our database.")
+
+        req.session.currentUser = {
+            id: foundUser._id,
+            username: foundUser.username
+        }
+
+        console.log(req.session)
+
         res.redirect('/')
     } catch(err) {
         console.log(err)

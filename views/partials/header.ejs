@@ -8,8 +8,12 @@
     </div>
     <div id = "right">
         <a href=""><button id = "upload">+ Upload</button></a>
-        <a href="http://localhost:4000/signUp"><button class = "magentaButton">Log in</button></a>
-        <a href=""><img id = "options" src="/images/options.png" alt="search option dots"></a>
+        <% if(!user) { %>
+            <a href="http://localhost:4000/signUp"><button class = "magentaButton">Log in</button></a>
+        <% } else { %>
+            <a href="http://localhost:4000/signUp"><button class = "magentaButton"><%= user %></button></a>
+        <% } %>
+        <a href="http://localhost:4000/signIn"><img id = "options" src="/images/options.png" alt="search option dots"></a>
     </div>
 </header>
 
