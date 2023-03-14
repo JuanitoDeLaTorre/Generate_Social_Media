@@ -236,3 +236,6 @@ strong {
 #tag:hover {
     background-color: rgb(30, 30, 30);
 }
+.tiktok-embed{
+    background-color: red;
+}
