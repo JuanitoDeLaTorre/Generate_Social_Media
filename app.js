@@ -3,7 +3,7 @@ const app = express()
 const methodOverride = require("method-override")
 const path = require("path")
 require("dotenv").config()
-const { User } = require('./models')
+const { User, Post, Comments, Likes } = require('./models')
 const axios = require("axios")
 const bcrypt = require("bcryptjs")
 const session = require("express-session")
@@ -105,7 +105,33 @@ app.get('/logOut', (req,res,next) => {
 
 app.get('/profile', async (req,res,next)=> {
     try {
-        res.render('profile.ejs', { user: req.session.currentUser?.username })
+        const reqPhotos = require('./testData/samplePhotos.js')
+        const photos = []
+
+        reqPhotos.forEach((photo)=> {
+            photos.push(photo.urls.regular)
+        })
+        console.log(photos)
+        res.render('profile.ejs', { user: req.session.currentUser?.username , photos: photos})
+    } catch(err) {
+        console.log(err)
+        next()
+    }
+})
+
+//DELETE / SEND BACK TO ROUTER
+app.get('/newContent', (req, res) => {
+    res.render('newPost.ejs', {user: req.session.currentUser?.username});
+});
+
+app.post('/newPhoto', async (req,res,next)=> {
+    try {
+        let postInfo = req.body
+        postInfo.username = req.session.currentUser.username
+
+        console.log(postInfo)
+        const newPhoto = await Post.create(postInfo)
+        res.redirect('/')
     } catch(err) {
         console.log(err)
         next()
