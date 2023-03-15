@@ -4,14 +4,24 @@
     <div class="mainWrapper">
         <%- include('./partials/sideNav.ejs') %>
 
-        <div class="profileInfo">
-            <img src="https://images.idgesg.net/images/article/2020/07/hacker_hacking_laptop_security_threat_attack_by_undefined_undefined_gettyimages-962366210_2400x1600_cio_cw-100852252-large.jpg?auto=webp&quality=85,70" id = "profilePicture" alt="">
-            <div id="profileText">
-                <h3><%= user %></h3>
-                <p>76 posts <span>294 followers</span> <span>512 following</span></p>
-                <p>Jonathan S. Thomas</p>
+        <div class="mainContent">
+            <div class="profileInfo">
+                <img src="https://images.unsplash.com/profile-fb-1523123434-df7dcac6e9cd.jpg?dpr=2&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff" id = "profilePicture" alt="">
+                <div id="profileText">
+                    <h3>[ <%= user %> ]</h3>
+                    <p>76 posts<span style = "margin: 0 15px 0 25px">294 followers</span> <span style = "margin: 0 15px 0 10px">512 following</span></p>
+                    <p style = "color: rgb(209, 209, 209)">Jonathan S. Thomas</p>
+                </div>
             </div>
-        </div>
+
+            <hr>
+            
+            <div class="photosWrapper">
+                <% photos.forEach((photo)=> { %>
+                    <img src="<%= photo %>" alt="">
+                <% }) %>
+            </div>
+    </div>
 
     </div>
 
