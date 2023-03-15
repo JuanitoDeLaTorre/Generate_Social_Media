@@ -5,27 +5,7 @@ const Post = require('../../models/post');
 const Like = require('../../models/likes');
 const Comment = require('../../models/comments');
 
-const seedData = [
-    {
-        name: 'v8',
-        power: '450hp',
-        topSpeed: '450mph',
-        color: 'midnight blue',
-        name: 'Lamborghini',
-        model: 'huracan',
-        year: '2015'
 
-    },
-    {
-        engine: 'v12',
-        power: '800hp',
-        topSpeed: '550mph',
-        color: 'space gray',
-        name: 'Bugatti',
-        model: 'Veyron Super Sport',
-        year: '2023'
-
-    }
 //CREATE SESSION
 app.use(
     session({
