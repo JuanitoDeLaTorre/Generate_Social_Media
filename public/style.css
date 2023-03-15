@@ -10,7 +10,7 @@ body {
 
 .mainWrapper {
     height: 10000px;
-    margin: 0px 15% 0px 15%;
+    margin: 0px 5% 0px 5%;
     /* border: solid red 3px; */
     display: flex;
 }
@@ -155,7 +155,7 @@ hr {
 .sideNav {
     margin-left: 5px;
     height: 100vh;
-    width: 33%;
+    width: 25%;
     overflow-y: scroll;
     overflow: scroll;
     /* border: solid green 2px; */
@@ -164,7 +164,7 @@ hr {
 .mainContent {
     margin: 0px 10% 0px 10%;
     height: 100vh;
-    width: 66%;
+    width: 74%;
     overflow: scroll;
     /* border: solid blue 2px; */
 }
@@ -338,19 +338,16 @@ form input, form label{
     padding: 8px;
 }
 
-/* .circle {
-    height: 50px;
-    width: 50px;
-    background-color: #3a3030;
-    border-radius: 100%;
-    background-image: url('/images/shareSolo.png'); */
-    /* background-attachment: fixed;
-    background-position: center; */
-    /* object-fit: cover; */
-    /* color: white;
+.profileInfo {
+    margin: 30px 0px 40px 20%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-.circle > img {
-    height: 15px;
-    width: auto;
-} */
+#profilePicture {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+}

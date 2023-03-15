@@ -1,0 +1,18 @@
+<%- include('./partials/header.ejs', { user: user }) %>
+
+<body>
+    <div class="mainWrapper">
+        <%- include('./partials/sideNav.ejs') %>
+
+        <div class="profileInfo">
+            <img src="https://images.idgesg.net/images/article/2020/07/hacker_hacking_laptop_security_threat_attack_by_undefined_undefined_gettyimages-962366210_2400x1600_cio_cw-100852252-large.jpg?auto=webp&quality=85,70" id = "profilePicture" alt="">
+            <div id="profileText">
+                <h3><%= user %></h3>
+                <p>76 posts <span>294 followers</span> <span>512 following</span></p>
+                <p>Jonathan S. Thomas</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
