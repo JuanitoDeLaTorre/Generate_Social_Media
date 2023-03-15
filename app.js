@@ -103,6 +103,15 @@ app.get('/logOut', (req,res,next) => {
     res.redirect('/')
 })
 
+app.get('/profile', async (req,res,next)=> {
+    try {
+        res.render('profile.ejs', { user: req.session.currentUser?.username })
+    } catch(err) {
+        console.log(err)
+        next()
+    }
+})
+
 app.listen(PORT, (req,res)=> {
     console.log(`Listening on port ${PORT}`)
 })
