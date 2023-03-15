@@ -4,6 +4,7 @@ const User = require('../../models/users');
 const Post = require('../../models/post');
 const Like = require('../../models/likes');
 const Comment = require('../../models/comments');
+const userData = require('../models/seed');
 
 
 //CREATE SESSION
@@ -20,7 +21,7 @@ app.use(
 
 app.get('/seed', async (req, res) => {
     try {
-        const users = await User.create(usersData);
+        const users = await User.create(userData);
         res.send(users)
         console.log('Successful Seeding');
     } catch(err) {
@@ -75,6 +76,3 @@ router.post('/posts', async (req, res) => {
         next()
     };
 })
-
-//update a post
-// router.put
