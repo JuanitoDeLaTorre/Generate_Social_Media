@@ -5,7 +5,27 @@ const Post = require('../../models/post');
 const Like = require('../../models/likes');
 const Comment = require('../../models/comments');
 
+const seedData = [
+    {
+        name: 'v8',
+        power: '450hp',
+        topSpeed: '450mph',
+        color: 'midnight blue',
+        name: 'Lamborghini',
+        model: 'huracan',
+        year: '2015'
 
+    },
+    {
+        engine: 'v12',
+        power: '800hp',
+        topSpeed: '550mph',
+        color: 'space gray',
+        name: 'Bugatti',
+        model: 'Veyron Super Sport',
+        year: '2023'
+
+    }
 //CREATE SESSION
 app.use(
     session({
@@ -17,6 +37,16 @@ app.use(
         
     })
 )
+
+app.get('/seed', async (req, res) => {
+    try {
+        const users = await User.create(usersData);
+        res.send(users)
+        console.log('Successful Seeding');
+    } catch(err) {
+        console.log(error);
+    }
+})
 
 app.get('/', (req,res)=> {
     res.render("index.ejs");
