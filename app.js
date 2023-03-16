@@ -12,6 +12,9 @@ const MongoStore = require("connect-mongo")
 //CONFIG
 const PORT = 4000
 
+//CONTROLLERS
+app.use('/users', require('./controller/controller.js'))
+
 //PROJECT PARAMS
 app.use(express.urlencoded({ extended: false }))
 app.set("views", path.join(__dirname,"views"))
