@@ -3,19 +3,28 @@ const mongoose = require('mongoose');
 
 //defining post schema
 const postSchema = new mongoose.Schema({
+    photoTitle: {
+        type: String,
+        required: true
+    },
+    photoLocation: {
+        type:String,
+        required: true,
+        default: 'Area 51 👽'
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
     content: {
-        type: Buffer,
+        type: String,
         required: true
     },
-    likes: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Like'
-    }],
+    likes: {
+        type: Number,
+        default: 0
+    },
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'

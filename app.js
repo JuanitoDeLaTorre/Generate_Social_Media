@@ -3,7 +3,7 @@ const app = express()
 const methodOverride = require("method-override")
 const path = require("path")
 require("dotenv").config()
-const { User } = require('./models')
+const { User, Post, Comments, Likes } = require('./models')
 const axios = require("axios")
 const bcrypt = require("bcryptjs")
 const session = require("express-session")
@@ -11,6 +11,9 @@ const MongoStore = require("connect-mongo")
 
 //CONFIG
 const PORT = 4000
+
+//CONTROLLERS
+app.use('/users', require('./controller/controller.js'))
 
 //PROJECT PARAMS
 app.use(express.urlencoded({ extended: false }))
@@ -105,7 +108,36 @@ app.get('/logOut', (req,res,next) => {
 
 app.get('/profile', async (req,res,next)=> {
     try {
-        res.render('profile.ejs', { user: req.session.currentUser?.username })
+        const allPosts = await Post.find({user: req.session.currentUser.id})
+        const reqPhotos = require('./testData/samplePhotos.js')
+        const photos = []
+
+        reqPhotos.forEach((photo)=> {
+            photos.push(photo.urls.regular)
+        })
+        console.log(photos)
+        res.render('profile.ejs', { user: req.session.currentUser?.username , photos: allPosts})
+    } catch(err) {
+        console.log(err)
+        next()
+    }
+})
+
+//DELETE / SEND BACK TO ROUTER
+app.get('/newContent', (req, res) => {
+    res.render('newPost.ejs', {user: req.session.currentUser?.username});
+});
+
+app.post('/newPhoto', async (req,res,next)=> {
+    try {
+        let postInfo = req.body
+        userObject = await User.findOne({username: req.session.currentUser.username})
+        console.log(userObject._id)
+        postInfo.user = userObject._id
+        console.log(req.body)
+        console.log(postInfo)
+        const newPhoto = await Post.create(postInfo)
+        res.redirect('/')
     } catch(err) {
         console.log(err)
         next()

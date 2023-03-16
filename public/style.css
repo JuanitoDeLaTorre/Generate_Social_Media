@@ -162,7 +162,7 @@ hr {
 }
 
 .mainContent {
-    margin: 0px 10% 0px 10%;
+    margin: 0px 3% 0px 5%;
     height: 100vh;
     width: 100%;
     overflow: scroll;
@@ -339,17 +339,40 @@ form input, form label{
 }
 
 .profileInfo {
+    height: 150px;
+    width: auto;
     margin: 30px 0px 40px 20%;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 60px;
 }
 
 #profilePicture {
-    height: 50px;
-    width: 50px;
+    height: 130px;
+    width: 130px;
     border-radius: 100%;
     object-fit: cover;
+    border: solid white 2px;
+}
+
+.photosWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin-left: 5%;
+}
+
+.photosWrapper img {
+    height: 275px;
+    width: 275px;
+    margin: 15px;
+    transition: all 200ms ease-in-out;
+    object-fit: cover;
+}
+
+.photosWrapper img:hover {
+    transform: scale(102%);
+    box-shadow: 0px 0px 10px white;
 }
 
 
