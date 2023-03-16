@@ -112,6 +112,16 @@ router.get('/logOut', (req,res,next) => {
     res.redirect('/')
 })
 
+router.get('/allUsers', async (req,res,next) => {
+    try {
+        const allUsers = await User.find({});
+        res.render('userList.ejs', {users: allUsers});
+    } catch(error){
+        console.log(error);
+        next();
+    }
+})
+
 router.get('/profile/:username', async (req,res,next)=> {
     try {
         //change to accept finding posts from any user, not just the one logged in
