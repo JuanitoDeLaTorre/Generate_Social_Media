@@ -8,7 +8,7 @@
             <div class="profileInfo">
                 <img src="<%= profileUser.profilePic %>" id = "profilePicture" alt="">
                 <div id="profileText">
-                    <h3>[ <%= profileUser.name %> ]</h3>
+                    <h3>[ <%= profileUser.username %> ]</h3>
                     <% 
                     let totalLikes = 0;
                     photos.forEach((photo) => {
@@ -25,7 +25,12 @@
             <div class="photosWrapper">
             <% if(photos.length > 0) { %>
                 <% photos.forEach((photo)=> { %>
-                    <img src="<%= photo.content %>" alt="">
+                    <div id = "photoBlock">
+                        <img src="<%= photo.content %>" alt="" id = "photoContent">
+                        <p id = "profilePhotoStats"><%= photo.likes %> likes<span style = "margin: 0 15px 0 25px"><%= photo.comments.length %> comments</span></p>
+                    </div>
+                    
+                    
                 <% }) %>
                 <% } else { %> 
                     <h3 style = "color:rgb(128, 128, 128)">Hmm, it's looking pretty empty here...add some content and get the party started!</h3>
@@ -34,5 +39,23 @@
     </div>
 
     </div>
+    <script>
 
+        const photoBlock = document.querySelectorAll("#photoContent")
+        const stats = document.querySelectorAll("#profilePhotoStats")
+
+        for(let i = 0; i < photoBlock.length; i++) {
+            photoBlock[i].addEventListener("mouseover", ()=> {
+                stats[i].style.bottom = "5px"
+                stats[i].style.opacity = "1"
+            })
+        }
+
+        for(let i = 0; i < photoBlock.length; i++) {
+            photoBlock[i].addEventListener("mouseout", ()=> {
+                stats[i].style.bottom = "0px"
+                stats[i].style.opacity = "0"
+            })
+        }
+    </script>
 </body>
