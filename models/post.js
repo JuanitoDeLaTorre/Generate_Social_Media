@@ -26,7 +26,8 @@ const postSchema = new mongoose.Schema({
         default: 0
     },
     comments: [{
-        type: mongoose.Schema.Types.ObjectId,
+        //CHANGE BACK TO MONGO ID??
+        type: String,
         ref: 'Comment'
     }],
     created: {
