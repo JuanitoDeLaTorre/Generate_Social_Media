@@ -26,6 +26,7 @@
             <% if(photos.length > 0) { %>
                 <% photos.forEach((photo)=> { %>
                     <div id = "photoBlock">
+                        <p id = "photoTitleOverlay"><%= photo.photoTitle %></p>
                         <img src="<%= photo.content %>" alt="" id = "photoContent">
                         <p id = "profilePhotoStats"><%= photo.likes %> likes<span style = "margin: 0 15px 0 25px"><%= photo.comments.length %> comments</span></p>
                     </div>
