@@ -9,7 +9,7 @@ body {
 }
 
 .mainWrapper {
-    height: 10000px;
+    height: 100%;
     margin: 0px 5% 0px 5%;
     /* border: solid red 3px; */
     display: flex;
@@ -164,7 +164,7 @@ hr {
 .mainContent {
     margin: 0px 10% 0px 10%;
     height: 100vh;
-    width: 74%;
+    width: 100%;
     overflow: scroll;
     /* border: solid blue 2px; */
 }
@@ -350,4 +350,56 @@ form input, form label{
     width: 50px;
     border-radius: 100%;
     object-fit: cover;
+}
+
+.post{
+    border-radius: 1%;
+    padding: 15px 0px 15px 40px;
+    min-width: 400px;
+    max-width: 425px;
+    height: 70%;
+    background-color: rgb(27, 27, 27);
+    margin: 50px 0px 0px 50px;
+    box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.2);
+    
+}
+.card-image{
+    border-radius: 1%;
+    /* border: solid rgb(255, 255, 255) 4px; */
+    /* margin: 40px; */
+    width: 400px;
+    height: 400px;
+
+    
+}
+.card-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow-clip-margin: content-box;
+	overflow: clip;
+
+
+}
+
+hr{
+    width: 90%;
+}
+.profilePicUsername{
+    display: flex;
+    align-items: center;
+ 
+}
+.profilePictureCircle{
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  max-width: 25%;
+  max-height: 25%;
+  margin-right: 10px;
+}
+
+.postDescription{
+    font-size: 11px;
 }
