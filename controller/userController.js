@@ -8,7 +8,7 @@ module.exports = { getUserPosts };
 
 
 
-const = { getUserPost } = require()
+const { getUserPost } = require()
 
 application.get('/Users/:username', async (req,res, next) => {
     const username = req.params.username;
