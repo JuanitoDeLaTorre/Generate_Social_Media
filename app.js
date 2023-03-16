@@ -108,6 +108,7 @@ app.get('/logOut', (req,res,next) => {
 
 app.get('/profile', async (req,res,next)=> {
     try {
+        const allPosts = await Post.find({user: req.session.currentUser.id})
         const reqPhotos = require('./testData/samplePhotos.js')
         const photos = []
 
@@ -115,7 +116,7 @@ app.get('/profile', async (req,res,next)=> {
             photos.push(photo.urls.regular)
         })
         console.log(photos)
-        res.render('profile.ejs', { user: req.session.currentUser?.username , photos: photos})
+        res.render('profile.ejs', { user: req.session.currentUser?.username , photos: allPosts})
     } catch(err) {
         console.log(err)
         next()
@@ -130,8 +131,10 @@ app.get('/newContent', (req, res) => {
 app.post('/newPhoto', async (req,res,next)=> {
     try {
         let postInfo = req.body
-        postInfo.username = req.session.currentUser.username
-
+        userObject = await User.findOne({username: req.session.currentUser.username})
+        console.log(userObject._id)
+        postInfo.user = userObject._id
+        console.log(req.body)
         console.log(postInfo)
         const newPhoto = await Post.create(postInfo)
         res.redirect('/')
