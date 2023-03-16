@@ -13,7 +13,7 @@ const MongoStore = require("connect-mongo")
 const PORT = 4000
 
 //CONTROLLERS
-app.use('/users', require('./controller/controller.js'))
+app.use('/', require('./controller/controller.js'))
 
 //PROJECT PARAMS
 app.use(express.urlencoded({ extended: false }))
@@ -40,109 +40,111 @@ app.get('/', (req,res)=> {
     res.render("index.ejs", { user: req.session.currentUser?.username })
 })
 
-app.get('/signUp', (req,res) => {
-    res.render('signUp.ejs', { user: req.session.currentUser?.username })
-})
+// app.get('/signUp', (req,res) => {
+//     res.render('signUp.ejs', { user: req.session.currentUser?.username })
+// })
 
-app.post('/users/signUp', async (req,res,next)=> {
-    try {
-        const userInfo = {...req.body}
+// app.post('/users/signUp', async (req,res,next)=> {
+//     try {
+//         const userInfo = {...req.body}
 
-        console.log(req.body)
+//         console.log(req.body)
 
-        let salt = await bcrypt.genSalt(12)
+//         let salt = await bcrypt.genSalt(12)
 
-        const hash = await bcrypt.hash(userInfo.password, salt);
-        userInfo.password = hash
+//         const hash = await bcrypt.hash(userInfo.password, salt);
+//         userInfo.password = hash
 
-        const newUser = await User.create(userInfo)
+//         const newUser = await User.create(userInfo)
 
-        req.session.currentUser = {
-            id: newUser._id,
-            username: userInfo.username
-        }
+//         req.session.currentUser = {
+//             id: newUser._id,
+//             username: userInfo.username
+//         }
 
-        res.redirect('/')
-    } catch(err) {
-        console.log(err)
-        next()
-    }
-})
+//         res.redirect('/')
+//     } catch(err) {
+//         console.log(err)
+//         next()
+//     }
+// })
 
-app.get('/signIn', async (req,res,next)=> {
-    res.render('signIn.ejs', { user: req.session.currentUser?.username })
-})
+// app.get('/signIn', async (req,res,next)=> {
+//     res.render('signIn.ejs', { user: req.session.currentUser?.username })
+// })
 
-app.post('/signIn', async (req,res,next)=> {
-    try {
-        const loginInfo = req.body
-        console.log(req.body)
-        const foundUser = await User.findOne({username:loginInfo.username})
+// app.post('/signIn', async (req,res,next)=> {
+//     try {
+//         const loginInfo = req.body
+//         console.log(req.body)
+//         const foundUser = await User.findOne({username:loginInfo.username})
 
-        if(!foundUser) {
-            return res.redirect('/signUp')
-        }
+//         if(!foundUser) {
+//             return res.redirect('/signUp')
+//         }
 
-        const match = bcrypt.compare(loginInfo.password, foundUser.password)
-        console.log(match)
-        if(!match) return res.send("Email or password doesn't match our database.")
+//         const match = bcrypt.compare(loginInfo.password, foundUser.password)
+//         console.log(match)
+//         if(!match) return res.send("Email or password doesn't match our database.")
 
-        req.session.currentUser = {
-            id: foundUser._id,
-            username: foundUser.username
-        }
+//         req.session.currentUser = {
+//             id: foundUser._id,
+//             username: foundUser.username
+//         }
 
-        console.log(req.session)
+//         console.log(req.session)
 
-        res.redirect('/')
-    } catch(err) {
-        console.log(err)
-        next()
-    }
-})
+//         res.redirect('/')
+//     } catch(err) {
+//         console.log(err)
+//         next()
+//     }
+// })
 
-app.get('/logOut', (req,res,next) => {
-    req.session.destroy()
-    res.redirect('/')
-})
+// app.get('/logOut', (req,res,next) => {
+//     req.session.destroy()
+//     res.redirect('/')
+// })
 
-app.get('/profile', async (req,res,next)=> {
-    try {
-        const allPosts = await Post.find({user: req.session.currentUser.id})
-        const reqPhotos = require('./testData/samplePhotos.js')
-        const photos = []
+// app.get('/profile/:username', async (req,res,next)=> {
+//     try {
+//         //change to accept finding posts from any user, not just the one logged in
+//         const profileUser = await User.findOne({username: req.params.username})
+//         const allPosts = await Post.find({user: profileUser})
+//         console.log(profileUser)
+//         const reqPhotos = require('./testData/samplePhotos.js')
+//         const photos = []
 
-        reqPhotos.forEach((photo)=> {
-            photos.push(photo.urls.regular)
-        })
-        console.log(photos)
-        res.render('profile.ejs', { user: req.session.currentUser?.username , photos: allPosts})
-    } catch(err) {
-        console.log(err)
-        next()
-    }
-})
+//         reqPhotos.forEach((photo)=> {
+//             photos.push(photo.urls.regular)
+//         })
+//         res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: allPosts})
+//     } catch(err) {
+//         console.log(err)
+//         next()
+//     }
+// })
 
-//DELETE / SEND BACK TO ROUTER
-app.get('/newContent', (req, res) => {
-    res.render('newPost.ejs', {user: req.session.currentUser?.username});
-});
+// //DELETE / SEND BACK TO ROUTER
+// app.get('/newContent', (req, res) => {
+//     res.render('newPost.ejs', {user: req.session.currentUser?.username});
+// });
 
-app.post('/newPhoto', async (req,res,next)=> {
-    try {
-        let postInfo = req.body
-        userObject = await User.findOne({username: req.session.currentUser.username})
-        console.log(userObject._id)
-        postInfo.user = userObject._id
-        console.log(req.body)
-        console.log(postInfo)
-        const newPhoto = await Post.create(postInfo)
-        res.redirect('/')
-    } catch(err) {
-        console.log(err)
-        next()
-    }
-})
+// app.post('/newPhoto', async (req,res,next)=> {
+//     try {
+//         let postInfo = req.body
+//         userObject = await User.findOne({username: req.session.currentUser.username})
+//         console.log(userObject._id)
+//         postInfo.user = userObject._id
+//         console.log(req.body)
+//         console.log(postInfo)
+//         const newPhoto = await Post.create(postInfo)
+//         res.redirect('/')
+//     } catch(err) {
+//         console.log(err)
+//         next()
+//     }
+// })
 
 app.listen(PORT, (req,res)=> {
     console.log(`Listening on port ${PORT}`)
