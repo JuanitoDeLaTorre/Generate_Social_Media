@@ -2,7 +2,7 @@
 
 <body>
     <div class="mainWrapper">
-        <%- include('./partials/sideNav.ejs') %>
+        <%- include('./partials/sideNav.ejs', {user: user}) %>
 
         <div class="mainContent">
             <div class="profileInfo">
@@ -28,7 +28,7 @@
                     <div id = "photoBlock">
                         <p id = "photoTitleOverlay"><%= photo.photoTitle %></p>
                         <img src="<%= photo.content %>" alt="" id = "photoContent">
-                        <p id = "profilePhotoStats"><%= photo.likes %> likes<span style = "margin: 0 15px 0 25px"><%= photo.comments.length %> comments</span></p>
+                        <p id = "profilePhotoStats"><%= photo.likes %> likes<span style = "margin: 0 0px 0 20px"><%= photo.comments.length %> comments</span></p>
                     </div>
                     
                     
@@ -37,22 +37,35 @@
                     <h3 style = "color:rgb(128, 128, 128)">Hmm, it's looking pretty empty here...add some content and get the party started!</h3>
                     <% } %>
             </div>
-    </div>
+            <% for(let i = 0; i < photos.length; i++) { %>
+            <div id="commentBox">
+                <% photos[i].comments.forEach((comment)=> { %>
+                    <p><%= comment %></p>
+                <% }) %>
+                <form method = "POST" action="/postComment">
+                    <input type="text">
+                    <button class = "darkButton" type = "submit">Post</button>
+                </form>
+             </div>
+             <% } %>
+     </div>
 
     </div>
     <script>
+        const commentBoxes = document.querySelectorAll("#commentBox")
         const titles = document.querySelectorAll("#photoTitleOverlay")
         const photoBlock = document.querySelectorAll("#photoContent")
         const stats = document.querySelectorAll("#profilePhotoStats")
 
-        console.log(titles)
 
         for(let i = 0; i < photoBlock.length; i++) {
             photoBlock[i].addEventListener("mouseover", ()=> {
+                console.log(titles)
+
                 stats[i].style.bottom = "5px"
                 stats[i].style.opacity = "1"
                 titles[i].style.opacity = "1"
-                titles[i].style.top = "3px"
+                titles[i].style.top = "-4px"
 
             })
         }
@@ -62,7 +75,15 @@
                 stats[i].style.bottom = "0px"
                 stats[i].style.opacity = "0"
                 titles[i].style.opacity = "0"
-                titles[i].style.top = "-5px"
+                titles[i].style.top = "-7px"
+
+            })
+        }
+
+        for(let i = 0; i < photoBlock.length; i++) {
+            photoBlock[i].addEventListener("click", ()=> {
+                commentBoxes[i].style.display = "block"
+                commentBoxes[i].style.opacity = "1"
 
             })
         }

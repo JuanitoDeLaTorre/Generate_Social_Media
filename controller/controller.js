@@ -127,13 +127,11 @@ router.get('/profile/:username', async (req,res,next)=> {
         //change to accept finding posts from any user, not just the one logged in
         const profileUser = await User.findOne({username: req.params.username})
         const allPosts = await Post.find({user: profileUser})
-        console.log(profileUser)
-        // const reqPhotos = require('./testData/samplePhotos.js')
-        // const photos = []
 
-        // reqPhotos.forEach((photo)=> {
-        //     photos.push(photo.urls.regular)
-        // })
+        allPosts.forEach((post)=> {
+            console.log(post.photoTitle + " " + post.comments)
+        })
+
         res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: allPosts})
     } catch(err) {
         console.log(err)
@@ -161,6 +159,7 @@ router.post('/newPhoto', async (req,res,next)=> {
         next()
     }
 })
+
 
 
 module.exports = router

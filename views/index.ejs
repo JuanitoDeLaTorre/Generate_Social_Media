@@ -4,6 +4,10 @@
     <!-- side nav and suggested accounts/tags -->
     <%- include('./partials/sideNav.ejs') %>
 
+
+        <!-- side nav and suggested accounts/tags -->
+        <%- include('./partials/sideNav.ejs', { user:user }) %>
+
     <div class="mainContent">
 <!--  -->
         <% for(let i=0; i<posts.length; i++) { %>
@@ -29,6 +33,7 @@
               </div>
             </div>
           <% }; %>
+
 
 
       <!-- <div class="contentTile">
