@@ -41,14 +41,19 @@
 
     </div>
     <script>
-
+        const titles = document.querySelectorAll("#photoTitleOverlay")
         const photoBlock = document.querySelectorAll("#photoContent")
         const stats = document.querySelectorAll("#profilePhotoStats")
+
+        console.log(titles)
 
         for(let i = 0; i < photoBlock.length; i++) {
             photoBlock[i].addEventListener("mouseover", ()=> {
                 stats[i].style.bottom = "5px"
                 stats[i].style.opacity = "1"
+                titles[i].style.opacity = "1"
+                titles[i].style.top = "3px"
+
             })
         }
 
@@ -56,6 +61,9 @@
             photoBlock[i].addEventListener("mouseout", ()=> {
                 stats[i].style.bottom = "0px"
                 stats[i].style.opacity = "0"
+                titles[i].style.opacity = "0"
+                titles[i].style.top = "-5px"
+
             })
         }
     </script>

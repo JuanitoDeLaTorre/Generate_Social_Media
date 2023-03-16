@@ -397,10 +397,10 @@ form input, form label{
     position: absolute;
     text-align: center;
     width: 100%;
-    top: 0px;
-    right: 20px;
+    top: -5px;
+    right: 15px;
     color: white;
-    opacity: 1;
+    opacity: 0;
     display: block;
     transition: all 300ms ease-in-out;
 }
