@@ -6,20 +6,30 @@
 
         <div class="mainContent">
             <div class="profileInfo">
-                <img src="https://images.unsplash.com/profile-fb-1523123434-df7dcac6e9cd.jpg?dpr=2&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff" id = "profilePicture" alt="">
+                <img src="<%= profileUser.profilePic %>" id = "profilePicture" alt="">
                 <div id="profileText">
-                    <h3>[ <%= user %> ]</h3>
-                    <p>76 posts<span style = "margin: 0 15px 0 25px">294 followers</span> <span style = "margin: 0 15px 0 10px">512 following</span></p>
-                    <p style = "color: rgb(209, 209, 209)">Jonathan S. Thomas</p>
+                    <h3>[ <%= profileUser.name %> ]</h3>
+                    <% 
+                    let totalLikes = 0;
+                    photos.forEach((photo) => {
+                        totalLikes += photo.likes
+                    }) 
+                    %>
+                    <p><%= photos.length %> posts<span style = "margin: 0 15px 0 25px"><%= totalLikes %> total likes</span> <span style = "margin: 0 15px 0 10px">512 following</span></p>
+                    <p style = "color: rgb(209, 209, 209)"><%= profileUser.name %></p>
                 </div>
             </div>
-
+            <h3 style = "text-align: center;">ALL PHOTOS</h3>
             <hr>
             
             <div class="photosWrapper">
+            <% if(photos.length > 0) { %>
                 <% photos.forEach((photo)=> { %>
                     <img src="<%= photo.content %>" alt="">
                 <% }) %>
+                <% } else { %> 
+                    <h3 style = "color:rgb(128, 128, 128)">Hmm, it's looking pretty empty here...add some content and get the party started!</h3>
+                    <% } %>
             </div>
     </div>
 
