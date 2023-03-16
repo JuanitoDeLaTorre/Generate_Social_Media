@@ -6,7 +6,32 @@
         <%- include('./partials/sideNav.ejs') %>
 
         <div class="mainContent">
-            <div class="contentTile">
+                <div class="post">
+                    <div class="profilePicUsername">
+                        <span class="profilePictureCircle"></span>            
+                            <h5 id="homescreenUsername"> <%= user %> </h5>
+                            
+                    </div>
+                    <p id="userLocation"> Location will be here </p>
+                
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+                    </div>
+                    <div class="card-content">
+                        <!-- <i class="material-icons">favorite</i> -->
+                        <div class="likeShare">
+                            <img src="/images/instagramLikeButton.png" alt="" srcset="">
+                            <img src="/images/whiteShareButton.png" alt="" srcset="">
+                        </div>
+                        <h5> username </h5>
+                        <p class="postDescription"> This is the post body eh</p>
+                        <input type="text" placeholder="Add a comment!" class="commentSection"/>
+                        <!-- <hr class="postDivider"> -->
+                    </div>
+
+                </div>
+                
+            <!-- <div class="contentTile">
                 <div class="suggestedAccount">
                     <img src="https://media.allure.com/photos/63dbe74dbaff0a1d977a4243/16:9/w_2560%2Cc_limit/selena%2520gomez%2520makeup-free%2520selfie%25202023.jpg" style = "height: 60px; width: 60px; border-radius: 100%; object-fit: cover;" alt="" >
                     <div id="userName" style = "display: flex; flex-direction: column; color: white">
@@ -29,9 +54,9 @@
                     </div>
                 </ul>
                 <hr>
-            </div>
+            </div> -->
 
-            <div class="contentTile">
+            <!-- <div class="contentTile">
                 <div class="suggestedAccount">
                     <img src="https://api.time.com/wp-content/uploads/2014/11/nick-offerman.jpg" style = "height: 60px; width: 60px; border-radius: 100%; object-fit: cover;" alt="" >
                     <div id="userName" style = "display: flex; flex-direction: column; color: white">
@@ -54,7 +79,7 @@
                     </div>
                 </ul>
                 <hr>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>
