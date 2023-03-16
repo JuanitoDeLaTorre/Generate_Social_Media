@@ -9,7 +9,7 @@ body {
 }
 
 .mainWrapper {
-    height: 100vh;
+    height: 100%;
     margin: 0px 5% 0px 5%;
     /* border: solid red 3px; */
     display: flex;
@@ -164,7 +164,7 @@ hr {
 .mainContent {
     margin: 0px 3% 0px 5%;
     height: 100vh;
-    width: 74%;
+    width: 100%;
     overflow: scroll;
     /* border: solid blue 2px; */
 }
@@ -375,6 +375,7 @@ form input, form label{
     box-shadow: 0px 0px 10px white;
 }
 
+
 #photoBlock {
     position: relative;
 }
@@ -404,3 +405,89 @@ form input, form label{
     display: block;
     transition: all 300ms ease-in-out;
 }
+
+
+.post{
+    border-radius: 1%;
+    padding: 15px 0px 15px 40px;
+    min-width: 400px;
+    max-width: 425px;
+    height: 70%;
+    background-color: rgb(27, 27, 27);
+    margin: 50px 0px 0px 50px;
+    box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.2);
+    
+}
+.card-image{
+    border-radius: 1%;
+    /* border: solid rgb(255, 255, 255) 4px; */
+    /* margin: 40px; */
+    width: 400px;
+    height: 400px;
+
+    
+}
+.card-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow-clip-margin: content-box;
+	overflow: clip;
+
+
+}
+
+hr{
+    width: 90%;
+}
+.profilePicUsername{
+    display: flex;
+    align-items: center;
+ 
+}
+.profilePictureCircle{
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  max-width: 25%;
+  max-height: 25%;
+  margin-right: 10px;
+}
+.likeShare{
+    display: flex;
+
+}
+.postDescription{
+    font-size: 11px;
+}
+#userLocation{
+    font-size: 10px;
+}
+
+.post .card-content .likeShare {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.post .card-content .likeShare img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.post .card-content .commentSection {
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+
+    color: #ffffff;
+    margin-top: 10px;
+    outline: none;
+    background-color: #5c5c5c;
+    border-radius: 5px;
+}
+.post .card-content .commentSection::placeholder {
+    color: #8e8e8e;
+}
+
