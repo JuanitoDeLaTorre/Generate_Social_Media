@@ -112,10 +112,17 @@ router.get('/logOut', (req,res,next) => {
     res.redirect('/')
 })
 
-router.get('/allUsers', async (req,res,next) => {
+router.get('/allUsers', async (req, res, next) => {
     try {
         const allUsers = await User.find({});
-        res.render('userList.ejs', {users: allUsers});
+        const usersWithPostCount = [];
+
+        for (const user of allUsers) {
+            const postCount = await Post.countDocuments({ user: user._id });
+            usersWithPostCount.push({ ...user.toObject(), postCount });
+        }
+
+        res.render('userList.ejs', { users: usersWithPostCount, currentUser: req.session.currentUser });
     } catch(error){
         console.log(error);
         next();
