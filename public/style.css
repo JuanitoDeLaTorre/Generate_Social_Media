@@ -162,7 +162,7 @@ hr {
 }
 
 .mainContent {
-    margin: 0px 3% 0px 5%;
+    margin: 0px 3% 0px 11%;
     height: 100vh;
     width: 100%;
     overflow: scroll;
@@ -432,31 +432,53 @@ form input, form label{
 
 
 .post{
-    border-radius: 1%;
+    border-radius: 30px;
     padding: 15px 0px 15px 40px;
-    min-width: 400px;
-    max-width: 425px;
-    height: 70%;
+    min-width: 650px;
+    max-width: 700px;
+    height: 65%;
     background-color: rgb(27, 27, 27);
-    margin: 50px 0px 0px 50px;
+    margin: 50px 0px 30px 50px;
     box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.2);
     
 }
+.profilePicUsername{
+    display: flex;
+    align-items: center;
+
+
+ 
+}
+.profilePictureCircle{
+}
+.profilePictureCircle img{
+object-fit: cover;
+height: 50px;
+width: 50px;
+border-radius: 100%;
+/* max-width: 25%;
+max-height: 25%; */
+margin-right: 10px;
+box-shadow: 0px 0px 5px rgba(106, 106, 106, 0.5);
+
+}
 .card-image{
-    border-radius: 1%;
     /* border: solid rgb(255, 255, 255) 4px; */
     /* margin: 40px; */
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
+    position: relative;
 
     
 }
 .card-image img{
+    border-radius: 30px;
     height: 100%;
     width: 100%;
     object-fit: cover;
     overflow-clip-margin: content-box;
 	overflow: clip;
+    
 
 
 }
@@ -464,20 +486,7 @@ form input, form label{
 hr{
     width: 90%;
 }
-.profilePicUsername{
-    display: flex;
-    align-items: center;
- 
-}
-.profilePictureCircle{
-  height: 25px;
-  width: 25px;
-  background-color: #fff;
-  border-radius: 50%;
-  max-width: 25%;
-  max-height: 25%;
-  margin-right: 10px;
-}
+
 .likeShare{
     display: flex;
 
