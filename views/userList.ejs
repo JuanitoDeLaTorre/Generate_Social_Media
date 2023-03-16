@@ -1,4 +1,4 @@
-<%- include('./partials/header.ejs', { user: user }) %>
+<%- include('./partials/header.ejs', { user: currentUser }) %>
 
 <body>
     <div class="mainWrapper">
@@ -6,11 +6,11 @@
 
         <div class="userInfo">
             <h1>All Users</h1>
-            <% users.forEach(user = > { %>
+            <% users.forEach((user) => { %>
                 <div class="userWrapper">
-                    <img src="<%= use.profilePicture %>" alt="<%= user.username %>">
+                    <img src="<%= user.profilePicture %>" alt="<%= user.username %>">
                     <a href="/profile/<%=user.username %>"><%= user.username %></a>
-                    <p>Total Posts: <%= users.posts.length %></p>
+                    <p>Total Posts: <%= user.postCount %></p>
                 </div>
                 <hr>
             <% }); %>
