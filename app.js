@@ -42,7 +42,6 @@ app.get('/', async (req,res, next)=> {
         for(let i = 0; i < allPosts.length; i++){ // Loop through all posts 
             mongoUsers.push(await User.findOne({_id:allPosts[i].user})) // User is key, string, link to the user. Each time post is found, new user is pushed to mongoUsers array. findOne looks for key of _id in mongoDB and links it to allPosts[i]
         }
-        console.log(mongoUsers);
         res.render("index.ejs", { posts: allPosts, userObjects: mongoUsers, user: req.session.currentUser?.username }) 
     } catch(error){
         console.log(error);
