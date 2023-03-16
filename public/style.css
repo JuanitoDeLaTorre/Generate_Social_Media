@@ -352,6 +352,7 @@ form input, form label{
     object-fit: cover;
 }
 
+
 .post{
     border-radius: 1%;
     padding: 15px 0px 15px 40px;
@@ -399,7 +400,39 @@ hr{
   max-height: 25%;
   margin-right: 10px;
 }
+.likeShare{
+    display: flex;
 
+}
 .postDescription{
     font-size: 11px;
+}
+#userLocation{
+    font-size: 10px;
+}
+
+.post .card-content .likeShare {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.post .card-content .likeShare img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.post .card-content .commentSection {
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+
+    color: #ffffff;
+    margin-top: 10px;
+    outline: none;
+    background-color: #5c5c5c;
+    border-radius: 5px;
+}
+.post .card-content .commentSection::placeholder {
+    color: #8e8e8e;
 }
