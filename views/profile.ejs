@@ -42,8 +42,8 @@
                 <% photos[i].comments.forEach((comment)=> { %>
                     <p><%= comment %></p>
                 <% }) %>
-                <form method = "POST" action="/postComment">
-                    <input type="text">
+                <form method = "POST" action="/postComment/<%= photos[i]._id%>">
+                    <input type="text" name = "content">
                     <button class = "darkButton" type = "submit">Post</button>
                 </form>
              </div>

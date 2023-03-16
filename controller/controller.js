@@ -160,6 +160,19 @@ router.post('/newPhoto', async (req,res,next)=> {
     }
 })
 
+router.post('/postComment/:postID', async (req,res,next)=> {
+    try {
+        const comment = req.body
+        comment.user = req.session.currentUser?.id
+        comment.post = req.params.postID
+        console.log(comment)
 
+        const newComment = await Comments.create(comment)
+        res.redirect('/')
+    } catch(err) {
+        console.log(err)
+        next()
+    }
+})
 
 module.exports = router
