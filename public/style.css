@@ -429,6 +429,32 @@ form input, form label{
     transition: all 400ms ease-in-out;
 }
 
+#commentInput {
+    width: 50%;
+    height: 25px;
+    background-color: #8e8e8e;
+    border-radius: 18px;
+    border: none;
+    color: white;
+    padding: 6px 6px 6px 12px;
+}
+
+#exOut {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 .post{

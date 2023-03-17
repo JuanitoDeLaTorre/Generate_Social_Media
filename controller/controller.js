@@ -126,13 +126,53 @@ router.get('/profile/:username', async (req,res,next)=> {
     try {
         //change to accept finding posts from any user, not just the one logged in
         const profileUser = await User.findOne({username: req.params.username})
-        const allPosts = await Post.find({user: profileUser})
+        const allPosts = [...await Post.find({user: profileUser})]
 
-        allPosts.forEach((post)=> {
-            console.log(post.photoTitle + " " + post.comments)
-        })
+        console.log(allPosts)
 
-        res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: allPosts})
+        const allComments = []
+        for(let i = 0; i < allPosts.length; i++){
+            allComments.push([...await Comments.find({post:allPosts[i]._id})])
+        }
+
+        console.log(allComments)
+        console.log("BREAK")
+        console.log(await User.findOne({_id:allComments[0][0].user}))
+        console.log(allComments[0][0].user)
+        console.log("BREAK")
+
+        for(let i = 0; i < allComments.length; i++) {
+            for(let j = 0; j < allComments[i].length; j++){
+                const fullUser = await User.findOne({_id:allComments[0][0].user})
+                allComments[i][j].username = fullUser.username
+                
+            }
+        }
+
+        console.log(typeof allComments[0][1])
+        allComments[0][1].username = "AliColak"
+
+        // const testList = [
+        //     [{
+        //         name: "swagger among the starlight"
+        //     },
+        //     [{
+        //         name: "swagger among the starlight"
+        //     }]
+        // ],
+        //     [{
+        //         name: "swagger among the starlight"
+        //     }]
+        // ]
+            
+        //   console.log(testList)
+        //   testList[0][0].username = "AliColak"
+        //   console.log(testList)
+
+
+        // console.log(allComments)
+
+        res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: allPosts, comments:allComments})
     } catch(err) {
         console.log(err)
         next()
@@ -168,7 +208,7 @@ router.post('/postComment/:postID', async (req,res,next)=> {
         console.log(comment)
 
         const newComment = await Comments.create(comment)
-        res.redirect('/')
+        res.redirect('/profile/' + req.session.currentUser?.username)
     } catch(err) {
         console.log(err)
         next()

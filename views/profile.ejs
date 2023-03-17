@@ -24,27 +24,37 @@
             
             <div class="photosWrapper">
             <% if(photos.length > 0) { %>
-                <% photos.forEach((photo)=> { %>
+                <% for(let i = 0; i < photos.length; i++) { %>
                     <div id = "photoBlock">
-                        <p id = "photoTitleOverlay"><%= photo.photoTitle %></p>
-                        <img src="<%= photo.content %>" alt="" id = "photoContent">
-                        <p id = "profilePhotoStats"><%= photo.likes %> likes<span style = "margin: 0 0px 0 20px"><%= photo.comments.length %> comments</span></p>
+                        <p id = "photoTitleOverlay"><%= photos[i].photoTitle %></p>
+                        <img src="<%= photos[i].content %>" alt="" id = "photoContent">
+                        <p id = "profilePhotoStats"><%= photos[i].likes %> likes<span style = "margin: 0 0px 0 20px"><%= comments[i].length %> comments</span></p>
                     </div>
                     
                     
-                <% }) %>
+                <% } %>
                 <% } else { %> 
                     <h3 style = "color:rgb(128, 128, 128)">Hmm, it's looking pretty empty here...add some content and get the party started!</h3>
                     <% } %>
             </div>
             <% for(let i = 0; i < photos.length; i++) { %>
             <div id="commentBox">
-                <% photos[i].comments.forEach((comment)=> { %>
-                    <p><%= comment %></p>
-                <% }) %>
+                <div id="exOut">X</div>
+                <div style = "display: flex; justify-content: center;">
+                    <img src="<%= photos[i].content %>" style = "width: 50%; height: auto">
+
+                </div>
+                <ul style = "list-style: none;">
+                    <% comments[i].forEach((comment)=> { %>
+                        <li><%= comment.content %></li>
+                        <li><span style = "margin-left: 15px; font-size: 0.7em; color: rgb(189, 189, 189)">- <%= comment.created.toLocaleString() %></span></li>
+                        <hr>
+                    <% }) %>
+                </ul>
+                
                 <form method = "POST" action="/postComment/<%= photos[i]._id%>">
-                    <input type="text" name = "content">
-                    <button class = "darkButton" type = "submit">Post</button>
+                    <input type="text" id = "commentInput" style = "display: inline; margin-left: 8%;" name = "content">
+                    <button class = "darkButton" style = "height: 30px;" type = "submit">Post</button>
                 </form>
              </div>
              <% } %>
@@ -56,6 +66,7 @@
         const titles = document.querySelectorAll("#photoTitleOverlay")
         const photoBlock = document.querySelectorAll("#photoContent")
         const stats = document.querySelectorAll("#profilePhotoStats")
+        const ex = document.querySelectorAll("#exOut")
 
 
         for(let i = 0; i < photoBlock.length; i++) {
@@ -85,6 +96,12 @@
                 commentBoxes[i].style.display = "block"
                 commentBoxes[i].style.opacity = "1"
 
+            })
+        }
+
+        for(let i = 0; i < ex.length; i++) {
+            ex[i].addEventListener("click", ()=>{
+                commentBoxes[i].style.display = "none"
             })
         }
     </script>
