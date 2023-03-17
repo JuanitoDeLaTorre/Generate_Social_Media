@@ -389,26 +389,50 @@ form input, form label{
     box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.2);
     
 }
-.profilePicUsername{
-    
+.homescreen-profile-section{
     display: flex;
-    top: -15px;
+    align-items: center;
+    justify-content: center;;
+    background-color: rgb(45, 45, 45);
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.homescreen-profile-picture{
+    display: flex;
     padding: 10px;
     width: 100%;
-    height: 30px;
-    /* float: left;
-    left: 0px; 
-    filter: blur(10px); */
-    border-radius: 10px;
-    position: relative;
-    background-color: rgb(34, 34, 34);
+    height: 40px;
+    border-radius: 50%;
+    top: -15px;
+    object-fit: cover;
     z-index: 1000;
     align-items: center;
+    justify-content: center;
+
+     /* float: left;
+    left: 0px; 
+    filter: blur(10px); */
+    
  
 }
 
+.homescreen-profile-picture img{
+    border-radius: 50%;
+    padding: 20px;
+    height: auto;
+    width: 50px;
 
-.profilePictureCircle img{
+
+
+}
+.profile-details{
+    position: relative;
+    display: flex;
+    margin-left: 170px;
+
+}
+.profile-details img{
 object-fit: cover;
 height: 35px;
 width: 35px;
@@ -419,7 +443,7 @@ margin-right: 10px;
 box-shadow: 0px 0px 5px rgba(106, 106, 106, 0.5);
 
 }
-.card-image{
+.post-image{
     /* border: solid rgb(255, 255, 255) 4px; */
     /* margin: 40px; */
     width: 500px;
@@ -428,7 +452,7 @@ box-shadow: 0px 0px 5px rgba(106, 106, 106, 0.5);
 
     
 }
-.card-image img{
+.post-image img{
     border-radius: 10px;
     height: 100%;
     width: 100%;
@@ -436,43 +460,40 @@ box-shadow: 0px 0px 5px rgba(106, 106, 106, 0.5);
     overflow-clip-margin: content-box;
 	overflow: clip;
 }
-.pfpLocation{
+.post-location{
     width: 100%
 }
-hr{
-    width: 90%;
-}
 
-.likeShare{
+.post-actions{
     display: flex;
 
 }
-.postDescription{
+.post-details{
     font-size: 11px;
 }
-#homescreenUsername{
+.profile-username{
     color: white;
     font-size: 10px;
 
 }
-#userLocation{
+.post-location{
     font-size: 10px;
     text-align: right;
 }
 
-.likeShare {
+.post-actions {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
 }
-.likeShare img {
+.post-actions img {
     margin-top: 10px;
     width: 50px;
     height: 50px;
     margin-right: 15px;
     cursor: pointer;
 }
-.commentSection {
+.comment-section {
     border: none;
     padding: 15px;
     font-size: 14px;
@@ -484,9 +505,9 @@ hr{
     background-color: #5c5c5c;
     border-radius: 5px;
 }
-.post .card-content .commentSection::placeholder {
+.comment-section::placeholder {
     color: #8e8e8e;
 }
-.pfpCLocation{
+.profile-details{
     display: flex;
 }
