@@ -133,20 +133,64 @@ router.get('/profile/:username', async (req,res,next)=> {
     try {
         //change to accept finding posts from any user, not just the one logged in
         const profileUser = await User.findOne({username: req.params.username})
-        const allPosts = await Post.find({user: profileUser})
+        const allPosts = [...await Post.find({user: profileUser})]
 
-        allPosts.forEach((post)=> {
-            console.log(post.photoTitle + " " + post.comments)
-        })
+        const allComments = allPosts.comments
 
-        res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: allPosts})
+
+
+        // console.log(allPosts)
+
+        // const allComments = []
+        // for(let i = 0; i < allPosts.length; i++){
+        //     allComments.push([...await Comments.find({ post:allPosts[i]._id} ).populate('user').exec()])
+        // }
+
+        // const allComments = await Comments.find({ post:allPosts[i]._id} ).populate('user').exec()
+        console.log(allPosts)
+        // console.log("BREAK")
+        // console.log(await User.findOne({_id:allComments[0][0].user}))
+        // console.log(allComments[0][0].user)
+        // console.log("BREAK")
+
+        // for(let i = 0; i < allComments.length; i++) {
+        //     for(let j = 0; j < allComments[i].length; j++){
+        //         const fullUser = await User.findOne({_id:allComments[i][j].user})
+        //         allComments[i][j].username = fullUser.username
+                
+        //     }
+        // }
+
+        // console.log(allComments)
+        // allComments[0][1].username = "AliColak"
+
+        // const testList = [
+        //     [{
+        //         name: "swagger among the starlight"
+        //     },
+        //     [{
+        //         name: "swagger among the starlight"
+        //     }]
+        // ],
+        //     [{
+        //         name: "swagger among the starlight"
+        //     }]
+        // ]
+            
+        //   console.log(testList)
+        //   testList[0][0].username = "AliColak"
+        //   console.log(testList)
+
+
+        // console.log(allComments)
+
+        res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: allPosts, comments:allComments})
     } catch(err) {
         console.log(err)
         next()
     }
 })
 
-//DELETE / SEND BACK TO ROUTER
 router.get('/newContent', (req, res) => {
     res.render('newPost.ejs', {user: req.session.currentUser?.username});
 });
@@ -171,11 +215,25 @@ router.post('/postComment/:postID', async (req,res,next)=> {
     try {
         const comment = req.body
         comment.user = req.session.currentUser?.id
-        comment.post = req.params.postID
+        // comment.post = req.params.postID
         console.log(comment)
 
-        const newComment = await Comments.create(comment)
-        res.redirect('/')
+        const postToUpdate = await Post.findById(req.params.postID)
+        postToUpdate.comments.push(comment)
+
+        await postToUpdate.save()
+
+        res.redirect('back')
+    } catch(err) {
+        console.log(err)
+        next()
+    }
+})
+
+router.get('/delete/:id', async (req,res,next) => {
+    try {
+        const deletePost = await Post.deleteOne({_id:req.params.id})
+        res.redirect('back')
     } catch(err) {
         console.log(err)
         next()
