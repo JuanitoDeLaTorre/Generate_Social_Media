@@ -19,7 +19,7 @@
                     <p style = "color: rgb(209, 209, 209)"><%= profileUser.name %></p>
                     <% if(user === profileUser.username) { %> 
                         <a href=""><button class = "darkButton">Edit Profile</button></a>
-                        <button class = "darkButton" id = "deletePostButton">Delete Posts</button>
+                        <button class = "darkButton" id = "deletePostButton">Edit/Delete Posts</button>
 
                         <% } %>
                 </div>
@@ -32,6 +32,8 @@
                 <% for(let i = 0; i < photos.length; i++) { %>
                     <div id = "photoBlock">
                         <div id="deletePost"><a href = "http://localhost:4000/delete/<%= photos[i]._id %>">X</a></div>
+                        <div id="updatePost"><a href = "http://localhost:4000/delete/<%= photos[i]._id %>">O</a></div>
+                        <!-- <div id="updatePost">O</div> -->
                         <p id = "photoTitleOverlay"><%= photos[i].photoTitle %></p>
                         <img src="<%= photos[i].content %>" alt="" id = "photoContent">
                         <p id = "profilePhotoStats"><%= photos[i].likes %> likes<span style = "margin: 0 0px 0 20px"><%= photos[i].comments.length %> comments</span></p>
@@ -86,6 +88,7 @@
         const ex = document.querySelectorAll("#exOut")
         const delPostButton = document.querySelector("#deletePostButton")
         const delPost = document.querySelectorAll("#deletePost")
+        const updatePost = document.querySelectorAll("#updatePost")
 
 
         for(let i = 0; i < photoBlock.length; i++) {
@@ -128,6 +131,7 @@
             console.log("CLICKED")
             for(let i = 0; i < delPost.length; i++){
                 delPost[i].style.display = "flex"
+                updatePost[i].stye.display = "flex"
             }
         })
 
