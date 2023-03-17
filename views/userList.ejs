@@ -9,14 +9,12 @@
             <h3 style = "text-align: center;">ALL USERS</h3>
                 <% users.forEach((user) => { %>
                     <div class="userItem">
-                            <img src="<%= user.profilePic %>" style = "height: 50px; width: 50px; border-radius: 100%; object-fit: cover;" alt="<%= user.username %>">
+                            <img src="<%= user.profilePic %>" style = "height: 50px; width: 50px; border-radius: 100%; object-fit: cover;" alt="">
                             <a href="/profile/<%=user.username %>"><%= user.username %></a>
-
-                    
-                    </div>
-                    <div class="totalPosts">
-                        <p>Total Posts: <%= user.postCount %> </p>
-                    </div>
+                            <div class="postCount">
+                                <p>Total Posts: <%= user.postCount %> </p>
+                            </div>
+                    </div>  
                     
                     <hr id="listBreak">
                 
@@ -28,16 +26,3 @@
     </div>
 
 </body>
-
-<!-- <body>
-    <div class="mainWrapper">
-        <div class="userList">
-            for each user do this (style = "display: flex: justify-content: center; gap: 30px"):
-                <img src="" alt="">
-                <p>Username</p>
-                <p>Total Posts</p>
-        </div>
-    </div>
-</body> -->
-
-<!-- style = "height: 50px; width: 50px; border-radius: 100%; object-fit: cover;" alt="<%= user.username %>" -->
