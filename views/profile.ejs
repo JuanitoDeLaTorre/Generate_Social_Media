@@ -2,13 +2,13 @@
 
 <body>
     <div class="mainWrapper">
-        <%- include('./partials/sideNav.ejs') %>
+        <%- include('./partials/sideNav.ejs', {user: user}) %>
 
         <div class="mainContent">
             <div class="profileInfo">
                 <img src="<%= profileUser.profilePic %>" id = "profilePicture" alt="">
                 <div id="profileText">
-                    <h3>[ <%= profileUser.name %> ]</h3>
+                    <h3>[ <%= profileUser.username %> ]</h3>
                     <% 
                     let totalLikes = 0;
                     photos.forEach((photo) => {
@@ -17,6 +17,11 @@
                     %>
                     <p><%= photos.length %> posts<span style = "margin: 0 15px 0 25px"><%= totalLikes %> total likes</span> <span style = "margin: 0 15px 0 10px">512 following</span></p>
                     <p style = "color: rgb(209, 209, 209)"><%= profileUser.name %></p>
+                    <% if(user === profileUser.username) { %> 
+                        <a href=""><button class = "darkButton">Edit Profile</button></a>
+                        <button class = "darkButton" id = "deletePostButton">Delete Posts</button>
+
+                        <% } %>
                 </div>
             </div>
             <h3 style = "text-align: center;">ALL PHOTOS</h3>
@@ -24,15 +29,107 @@
             
             <div class="photosWrapper">
             <% if(photos.length > 0) { %>
-                <% photos.forEach((photo)=> { %>
-                    <img src="<%= photo.content %>" alt="">
-                <% }) %>
+                <% for(let i = 0; i < photos.length; i++) { %>
+                    <div id = "photoBlock">
+                        <div id="deletePost"><a href = "http://localhost:4000/delete/<%= photos[i]._id %>">X</a></div>
+                        <p id = "photoTitleOverlay"><%= photos[i].photoTitle %></p>
+                        <img src="<%= photos[i].content %>" alt="" id = "photoContent">
+                        <p id = "profilePhotoStats"><%= photos[i].likes %> likes<span style = "margin: 0 0px 0 20px"><%= photos[i].comments.length %> comments</span></p>
+                    </div>
+                    
+                    
+                <% } %>
                 <% } else { %> 
                     <h3 style = "color:rgb(128, 128, 128)">Hmm, it's looking pretty empty here...add some content and get the party started!</h3>
                     <% } %>
             </div>
-    </div>
+            <% for(let i = 0; i < photos.length; i++) { %>
+            <div id="commentBox">
+                <div id="exOut">X</div>
+                <div style = "display: flex; justify-content: center;">
+                    <img src="<%= photos[i].content %>" style = "width: 50%; height: auto">
+
+                </div>
+                <ul style = "list-style: none;">
+                    <% photos[i].comments.forEach((comment)=> { %>
+                        <div class = "commentContent" style = "display: flex; align-items: center;">
+                            
+                            <img id = "profilePicture" style = "transform: scale(50%); margin-bottom: 0" src="<%= photos[i].user.profilePic %>" alt="">
+                            
+                            <div style = "display: flex; flex-direction: column;">
+                                <li><%= comment.content %></li>
+                                <li><p style = "margin:3px; font-size: 0.8em;">- <%= photos[i].user%></p></li>
+                                <li><span style = "margin-left: 3px; font-size: 0.7em; color: rgb(189, 189, 189)">(<%= comment.created.toLocaleString() %>)</span></li>
+                            </div>
+                            
+                        </div>
+                        
+                        <hr style = "margin: 5px">
+                    <% }) %>
+                </ul>
+                
+                <form method = "POST" action="/postComment/<%= photos[i]._id%>">
+                    <input type="text" id = "commentInput" style = "display: inline; margin-left: 8%;" name = "content">
+                    <button class = "darkButton" style = "height: 30px;" type = "submit">Post</button><span><button class = "darkButton">Like</button></span>
+                </form>
+             </div>
+             <% } %>
+     </div>
 
     </div>
+    <script>
+        const commentBoxes = document.querySelectorAll("#commentBox")
+        const titles = document.querySelectorAll("#photoTitleOverlay")
+        const photoBlock = document.querySelectorAll("#photoContent")
+        const stats = document.querySelectorAll("#profilePhotoStats")
+        const ex = document.querySelectorAll("#exOut")
+        const delPostButton = document.querySelector("#deletePostButton")
+        const delPost = document.querySelectorAll("#deletePost")
 
+
+        for(let i = 0; i < photoBlock.length; i++) {
+            photoBlock[i].addEventListener("mouseover", ()=> {
+                console.log(titles)
+
+                stats[i].style.bottom = "5px"
+                stats[i].style.opacity = "1"
+                titles[i].style.opacity = "1"
+                titles[i].style.top = "-4px"
+
+            })
+        }
+
+        for(let i = 0; i < photoBlock.length; i++) {
+            photoBlock[i].addEventListener("mouseout", ()=> {
+                stats[i].style.bottom = "0px"
+                stats[i].style.opacity = "0"
+                titles[i].style.opacity = "0"
+                titles[i].style.top = "-7px"
+
+            })
+        }
+
+        for(let i = 0; i < photoBlock.length; i++) {
+            photoBlock[i].addEventListener("click", ()=> {
+                commentBoxes[i].style.display = "block"
+                commentBoxes[i].style.opacity = "1"
+
+            })
+        }
+
+        for(let i = 0; i < ex.length; i++) {
+            ex[i].addEventListener("click", ()=>{
+                commentBoxes[i].style.display = "none"
+            })
+        }
+
+        delPostButton.addEventListener("click",()=> {
+            console.log("CLICKED")
+            for(let i = 0; i < delPost.length; i++){
+                delPost[i].style.display = "flex"
+            }
+        })
+
+        
+    </script>
 </body>

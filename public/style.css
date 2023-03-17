@@ -71,6 +71,11 @@ input:focus {
     width: auto;
 }
 
+#hiddenButton {
+    position: absolute;
+    display: none;
+}
+
 
 hr {
     height: 1px;
@@ -358,7 +363,7 @@ form input, form label{
 .photosWrapper {
     display: flex;
     flex-wrap: wrap;
-    
+
     margin-left: 5%;
 }
 
@@ -374,6 +379,124 @@ form input, form label{
     transform: scale(102%);
     box-shadow: 0px 0px 10px white;
 }
+
+
+#photoBlock {
+    position: relative;
+    overflow: hidden;
+}
+
+#profilePhotoStats {
+    position: absolute;
+    text-align: center;
+    width: 278px;
+    height: 30px;
+    /* background-color: black; */
+    bottom: 0px;
+    right: 13px;
+    padding-top: 10px;
+    color: white;
+    opacity: 0;
+    display: block;
+    transition: all 300ms ease-in-out;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(205,205,205,0) 100%);
+}
+
+#photoTitleOverlay {
+    position: absolute;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+    width: 280px;
+    top: -5px;
+    right: 13px;
+    color: white;
+    opacity: 0;
+    display: block;
+    transition: all 300ms ease-in-out;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+#commentBox {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    top: 20%;
+    left: 40%;
+    height: auto;
+    padding: 25px;
+    width: 500px;
+    border-radius: 25px;
+    background-color: #272727;
+    box-shadow: 0px 0px 15px white;
+    z-index: 1000;
+    transition: all 400ms ease-in-out;
+}
+
+#commentInput {
+    width: 50%;
+    height: 25px;
+    background-color: #8e8e8e;
+    border-radius: 18px;
+    border: none;
+    color: white;
+    padding: 6px 6px 6px 12px;
+}
+
+#exOut {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: rgb(195, 195, 195);
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 200ms ease-in-out;
+}
+
+#exOut:hover {
+    transform: scale(106%);
+    background-color: white;
+}
+
+#deletePost {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: rgb(195, 195, 195);
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 200ms ease-in-out;
+    z-index: 100;
+    animation: 1s twist linear infinite;
+
+}
+
+#deletePost:hover {
+    transform: scale(106%);
+    background-color: white;
+}
+
+@keyframes twist {
+    0%{transform: rotate(15deg)}
+    50%{transform: rotate(-15deg)}
+    100%{transform: rotate(15deg);}
+}
+
 
 
 .post{
@@ -433,6 +556,10 @@ form input, form label{
 
 }
 .profile-details img{
+
+/* .profilePictureCircle{
+} */
+.profilePictureCircle img{
 object-fit: cover;
 height: 35px;
 width: 35px;
@@ -511,3 +638,34 @@ box-shadow: 0px 0px 5px rgba(106, 106, 106, 0.5);
 .profile-details{
     display: flex;
 }
+=======
+
+
+.userInfo {
+    width: 100%;
+    margin-left: 25px;
+}
+
+.userItem a {
+    margin-left: 50px;
+}
+
+.userItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    max-width: 1200px;
+}
+
+.postCount {
+    margin-right: 95px;
+
+}
+/* .totalPosts {
+    align-items: center;
+    text-align: right;
+    margin-right: 95px;
+    
+} */

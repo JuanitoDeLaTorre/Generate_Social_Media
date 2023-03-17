@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const commentSchema = require('./comments')
 
 
 //defining post schema
@@ -13,7 +14,7 @@ const postSchema = new mongoose.Schema({
         default: 'Area 51 👽'
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'User',
         required: true
     },
@@ -25,10 +26,7 @@ const postSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
-    }],
+    comments: [commentSchema],
     created: {
         type: Date,
         default: Date.now
