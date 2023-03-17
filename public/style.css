@@ -449,8 +449,8 @@ form input, form label{
 
  
 }
-.profilePictureCircle{
-}
+/* .profilePictureCircle{
+} */
 .profilePictureCircle img{
 object-fit: cover;
 height: 50px;
@@ -524,3 +524,12 @@ hr{
     color: #8e8e8e;
 }
 
+
+.userInfo {
+    margin:auto;
+}
+#listBreak {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
