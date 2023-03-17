@@ -594,10 +594,23 @@ hr{
 
 
 .userInfo {
-    margin:auto;
-}
-#listBreak {
+    /* display: flex;
+    flex-direction: column; */
     width: 100%;
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 25px;
+}
+
+.userItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0 10px;
+    max-width: 400px;
+}
+
+.totalPosts {
+    text-align: right;
 }
