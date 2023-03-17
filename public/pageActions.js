@@ -6,11 +6,11 @@ likeButton.addEventListener('click', function() {
   const currentSrc = likeButton.getAttribute('src');
   
   // Check if the current image is the empty heart icon
-  if (currentSrc === 'instagramLikeButton.png') {
+  if (currentSrc === '/images/instagramLikeButton.png') {
     // If the current image is the empty heart icon, change it to the filled heart icon
     likeButton.setAttribute('src', '/images/instagramLikeButtonFilled.png');
   } else {
     // If the current image is the filled heart icon, change it to the empty heart icon
-    likeButton.setAttribute('src', 'instagramLikeButton.png');
+    likeButton.setAttribute('src', '/images/instagramLikeButton.png');
   }
 });
