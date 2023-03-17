@@ -19,7 +19,7 @@
                     <p style = "color: rgb(209, 209, 209)"><%= profileUser.name %></p>
                     <% if(user === profileUser.username) { %> 
                         <a href=""><button class = "darkButton">Edit Profile</button></a>
-                        <button class = "darkButton" id = "deletePostButton">Delete Posts</button>
+                        <button class = "darkButton" id = "deletePostButton">Edit/Delete Posts</button>
 
                         <% } %>
                 </div>
@@ -32,6 +32,8 @@
                 <% for(let i = 0; i < photos.length; i++) { %>
                     <div id = "photoBlock">
                         <div id="deletePost"><a href = "http://localhost:4000/delete/<%= photos[i]._id %>">X</a></div>
+                        <div id="updatePost"><a href = "http://localhost:4000/delete/<%= photos[i]._id %>">O</a></div>
+                        <!-- <div id="updatePost">O</div> -->
                         <p id = "photoTitleOverlay"><%= photos[i].photoTitle %></p>
                         <img src="<%= photos[i].content %>" alt="" id = "photoContent">
                         <p id = "profilePhotoStats"><%= photos[i].likes %> likes<span style = "margin: 0 0px 0 20px"><%= photos[i].comments.length %> comments</span></p>
@@ -51,22 +53,21 @@
 
                 </div>
                 <ul style = "list-style: none;">
-                    <% for(let j = 0; j < photos[i].comments.length; j++) { %>
-                        
+                    <% photos[i].comments.forEach((comment)=> { %>
                         <div class = "commentContent" style = "display: flex; align-items: center;">
                             
-                            <img id = "profilePicture" style = "transform: scale(50%); margin-bottom: 0" src="<%= photos[i].comments[j].user.profilePic %>" alt="">
+                            <img id = "profilePicture" style = "transform: scale(50%); margin-bottom: 0" src="<%= photos[i].user.profilePic %>" alt="">
                             
                             <div style = "display: flex; flex-direction: column;">
-                                <li><%= photos[i].comments[j].content %></li>
-                                <li><p style = "margin:3px; font-size: 0.8em;">- <%= photos[i].comments[j].user.username %></p></li>
-                                <li><span style = "margin-left: 3px; font-size: 0.7em; color: rgb(189, 189, 189)">(<%= photos[i].comments[j].created.toLocaleString() %>)</span></li>
+                                <li><%= comment.content %></li>
+                                <li><p style = "margin:3px; font-size: 0.8em;">- <%= photos[i].user%></p></li>
+                                <li><span style = "margin-left: 3px; font-size: 0.7em; color: rgb(189, 189, 189)">(<%= comment.created.toLocaleString() %>)</span></li>
                             </div>
                             
                         </div>
                         
                         <hr style = "margin: 5px">
-                    <% } %>
+                    <% }) %>
                 </ul>
                 
                 <form method = "POST" action="/postComment/<%= photos[i]._id%>">
@@ -86,6 +87,7 @@
         const ex = document.querySelectorAll("#exOut")
         const delPostButton = document.querySelector("#deletePostButton")
         const delPost = document.querySelectorAll("#deletePost")
+        // const updatePost = document.querySelectorAll("#updatePost")
 
 
         for(let i = 0; i < photoBlock.length; i++) {
@@ -126,8 +128,10 @@
 
         delPostButton.addEventListener("click",()=> {
             console.log("CLICKED")
+            console.log(delPost.length)
             for(let i = 0; i < delPost.length; i++){
                 delPost[i].style.display = "flex"
+                // updatePost[i].style.display = "flex"
             }
         })
 
