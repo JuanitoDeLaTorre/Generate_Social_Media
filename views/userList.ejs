@@ -1,23 +1,34 @@
-<%- include('./partials/header.ejs', { user: user }) %>
+<%- include('./partials/header.ejs', { user: currentUser }) %>
 
 <body>
     <div class="mainWrapper">
-        <%- include('./partials/sideNav.ejs') %>
+        <%- include('./partials/sideNav.ejs', { user: currentUser }) %>
 
+        
         <div class="userInfo">
-            <h1>All Users</h1>
-            <% users.forEach(user = > { %>
+            <h3 style = "text-align: center;">ALL USERS</h3>
+            <% users.forEach((user) => { %>
                 <div class="userWrapper">
-                    <img src="<%= use.profilePicture %>" alt="<%= user.username %>">
+                    <img src="<%= user.profilePic %>" style = "height: 30px; width: 30px; border-radius: 100%; object-fit: cover;" alt="<%= user.username %>">
+                    <div id="profileName" style = "display: flex; flex-direction: column; color: white">
                     <a href="/profile/<%=user.username %>"><%= user.username %></a>
-                    <p>Total Posts: <%= users.posts.length %></p>
+                    
+                    </div>
+                    <p>Total Posts: <%= user.postCount %></p>
+                    <hr id="listBreak">
                 </div>
-                <hr>
+                
             <% }); %>
                 
         </div>
 
-
+        <!-- <div class="suggestedAccount">
+            <img src="https://media.allure.com/photos/63dbe74dbaff0a1d977a4243/16:9/w_2560%2Cc_limit/selena%2520gomez%2520makeup-free%2520selfie%25202023.jpg" style = "height: 30px; width: 30px; border-radius: 100%; object-fit: cover;" alt="" >
+            <div id="userName" style = "display: flex; flex-direction: column; color: white">
+                <p><strong>selenagomez ✅<span><img src="" alt=""></span></strong></p>
+                <p style = "color: grey; font-size: 0.9em;">Selena Gomez</p>
+            </div>
+        </div> -->
 
 
     </div>
