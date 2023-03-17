@@ -150,7 +150,7 @@ router.get('/profile/:username', async (req,res,next)=> {
         }
 
         console.log(typeof allComments[0][1])
-        allComments[0][1].username = "AliColak"
+        // allComments[0][1].username = "AliColak"
 
         // const testList = [
         //     [{
@@ -208,7 +208,8 @@ router.post('/postComment/:postID', async (req,res,next)=> {
         console.log(comment)
 
         const newComment = await Comments.create(comment)
-        res.redirect('/profile/' + req.session.currentUser?.username)
+        // res.redirect('/profile/' + req.session.currentUser?.username)
+        res.redirect('back')
     } catch(err) {
         console.log(err)
         next()
