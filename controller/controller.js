@@ -136,7 +136,7 @@ router.get('/profile/:username', async (req,res,next)=> {
         //change to accept finding posts from any user, not just the one logged in
         const profileUser = await User.findOne({username: req.params.username})
         const allPosts = [...await Post.find({user: profileUser})]
-        const newPosts = await Post.find({user:profileUser}).populate('user').exec()
+        const newPosts = await Post.find({user:profileUser}).populate('user comments.user').exec()
 
         // const NewPosts2 = await Post.find({user:profileUser}).comments.user.populate('user').exec()
 
@@ -201,4 +201,33 @@ router.get('/delete/:id', async (req,res,next) => {
     }
 })
 
+router.get('/update/:id', async (req,res,next) => {
+    try {
+        const oldInfo = await Post.findOne({_id:req.params.id})
+        console.log(oldInfo)
+        res.render('updatePost.ejs', {oldPost: oldInfo, user: req.session.currentUser?.username})
+    } catch(err) {
+        console.log(err)
+        next()
+    }
+})
+
+router.put('/updatePhoto/:postID', async (req,res,next)=> {
+    try {
+        const updateObject = req.body
+        updateObject.user = await User.findOne({_id: req.session.currentUser?.id})
+
+        console.log(updateObject)
+
+        const updatePhoto = await Post.findOneAndUpdate({_id:req.params.postID}, {$set:
+            updateObject
+        },{new:true})
+
+        console.log("SUCCESSFUL UPDATE")
+
+        res.redirect('/')
+    } catch(err) {
+        console.log(err)
+    }
+})
 module.exports = router
