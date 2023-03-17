@@ -18,7 +18,9 @@
                     <p><%= photos.length %> posts<span style = "margin: 0 15px 0 25px"><%= totalLikes %> total likes</span> <span style = "margin: 0 15px 0 10px">512 following</span></p>
                     <p style = "color: rgb(209, 209, 209)"><%= profileUser.name %></p>
                     <% if(user === profileUser.username) { %> 
-                        <button class = "darkButton">Edit Profile</button>
+                        <a href=""><button class = "darkButton">Edit Profile</button></a>
+                        <button class = "darkButton" id = "deletePostButton">Delete Posts</button>
+
                         <% } %>
                 </div>
             </div>
@@ -29,9 +31,10 @@
             <% if(photos.length > 0) { %>
                 <% for(let i = 0; i < photos.length; i++) { %>
                     <div id = "photoBlock">
+                        <div id="deletePost"><a href = "http://localhost:4000/delete/<%= photos[i]._id %>">X</a></div>
                         <p id = "photoTitleOverlay"><%= photos[i].photoTitle %></p>
                         <img src="<%= photos[i].content %>" alt="" id = "photoContent">
-                        <p id = "profilePhotoStats"><%= photos[i].likes %> likes<span style = "margin: 0 0px 0 20px"><%= comments[i].length %> comments</span></p>
+                        <p id = "profilePhotoStats"><%= photos[i].likes %> likes<span style = "margin: 0 0px 0 20px"><%= photos[i].comments.length %> comments</span></p>
                     </div>
                     
                     
@@ -48,7 +51,7 @@
 
                 </div>
                 <ul style = "list-style: none;">
-                    <% comments[i].forEach((comment)=> { %>
+                    <% photos[i].comments.forEach((comment)=> { %>
                         <li><%= comment.content %></li>
                         <li><span style = "margin-left: 15px; font-size: 0.7em; color: rgb(189, 189, 189)">- <%= comment.created.toLocaleString() %></span></li>
                         <hr>
@@ -70,6 +73,8 @@
         const photoBlock = document.querySelectorAll("#photoContent")
         const stats = document.querySelectorAll("#profilePhotoStats")
         const ex = document.querySelectorAll("#exOut")
+        const delPostButton = document.querySelector("#deletePostButton")
+        const delPost = document.querySelectorAll("#deletePost")
 
 
         for(let i = 0; i < photoBlock.length; i++) {
@@ -107,5 +112,14 @@
                 commentBoxes[i].style.display = "none"
             })
         }
+
+        delPostButton.addEventListener("click",()=> {
+            console.log("CLICKED")
+            for(let i = 0; i < delPost.length; i++){
+                delPost[i].style.display = "flex"
+            }
+        })
+
+        
     </script>
 </body>

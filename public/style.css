@@ -466,6 +466,37 @@ form input, form label{
     background-color: white;
 }
 
+#deletePost {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: rgb(195, 195, 195);
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 200ms ease-in-out;
+    z-index: 100;
+    animation: 2s twist linear infinite;
+
+}
+
+#deletePost:hover {
+    transform: scale(106%);
+    background-color: white;
+}
+
+@keyframes twist {
+    0%{transform: rotate(15deg)}
+    50%{transform: rotate(-15deg)}
+    100%{transform: rotate(15deg);}
+}
+
 
 
 .post{
