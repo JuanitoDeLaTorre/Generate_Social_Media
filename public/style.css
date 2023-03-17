@@ -379,7 +379,7 @@ form input, form label{
 .post{
     position: relative;
     border-radius: 10px;
-    padding: 25px 155px 20px 35px;
+    padding: 35px 155px 20px 35px;
     max-width: 375px;
     height: 75vh;
     background-color: rgb(27, 27, 27);
