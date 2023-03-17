@@ -115,14 +115,14 @@ router.get('/logOut', (req,res,next) => {
 router.get('/allUsers', async (req, res, next) => {
     try {
         const allUsers = await User.find({});
-        const usersWithPostCount = [];
+        const usersPostCount = [];
 
         for (const user of allUsers) {
             const postCount = await Post.countDocuments({ user: user._id });
-            usersWithPostCount.push({ ...user.toObject(), postCount });
+            usersPostCount.push({ ...user.toObject(), postCount });
         }
 
-        res.render('userList.ejs', { users: usersWithPostCount, currentUser: req.session.currentUser });
+        res.render('userList.ejs', { users: usersPostCount, currentUser: req.session.currentUser });
     } catch(error){
         console.log(error);
         next();
