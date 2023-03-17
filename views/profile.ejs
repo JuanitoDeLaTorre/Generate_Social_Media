@@ -17,6 +17,9 @@
                     %>
                     <p><%= photos.length %> posts<span style = "margin: 0 15px 0 25px"><%= totalLikes %> total likes</span> <span style = "margin: 0 15px 0 10px">512 following</span></p>
                     <p style = "color: rgb(209, 209, 209)"><%= profileUser.name %></p>
+                    <% if(user === profileUser.username) { %> 
+                        <button class = "darkButton">Edit Profile</button>
+                        <% } %>
                 </div>
             </div>
             <h3 style = "text-align: center;">ALL PHOTOS</h3>

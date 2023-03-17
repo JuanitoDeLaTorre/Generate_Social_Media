@@ -132,7 +132,7 @@ router.get('/profile/:username', async (req,res,next)=> {
 
         const allComments = []
         for(let i = 0; i < allPosts.length; i++){
-            allComments.push([...await Comments.find({post:allPosts[i]._id})])
+            allComments.push([...await Comments.find({ post:allPosts[i]._id} )])
         }
 
         console.log(allComments)
