@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs', { user: user }) %>
+
+<body>
+    <div class="mainWrapper">
+        <%- include('./partials/sideNav.ejs', {user: user}) %>
+        <div class="mainContent">
+            <img src="<%= oldPost.content %>" style = "width: 20%; height: auto">
+            <form method = "POST" action="/updatePhoto/<%= oldPost._id %>?_method=PUT">
+                <label for="photoTitle">New Photo Title (previously <%= oldPost.photoTitle %>)</label>
+                <input type="text" name = "photoTitle"> 
+    
+                <label for="photoLocation">New Photo Location (previously <%= oldPost.photoLocation %>)</label>
+                <input type="text" name = "photoLocation">
+    
+                <label for="content">New URL of image</label>
+                <input type="text" name = "content">
+    
+                <button class="magentaButton">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>

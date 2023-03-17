@@ -495,7 +495,7 @@ form input, form label{
 #updatePost {
     position: absolute;
     top: 0;
-    right: 10px;
+    right: 30px;
     height: 15px;
     width: 15px;
     border-radius: 100%;
@@ -503,7 +503,7 @@ form input, form label{
     color: black;
     padding: 5px;
     cursor: pointer;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     transition: all 200ms ease-in-out;
