@@ -377,29 +377,41 @@ form input, form label{
 
 
 .post{
-    border-radius: 30px;
-    padding: 15px 0px 15px 40px;
-    min-width: 650px;
-    max-width: 700px;
-    height: 65%;
+    position: relative;
+    border-radius: 10px;
+    padding: 25px 155px 20px 35px;
+    max-width: 375px;
+    height: 75vh;
     background-color: rgb(27, 27, 27);
     margin: 50px 0px 30px 50px;
     box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.2);
     
 }
 .profilePicUsername{
+    
     display: flex;
+    float: left;
+    left: 175px;
+    top: 45px;
+    padding: 10px;
+    width: 30%;
+    height: 30px;
+    /* filter: blur(10px); */
+    border-radius: 10px;
+    position: absolute;
+    background-color: rgba(255,255,255,1);
+    z-index: 1000;
     align-items: center;
+    
 
 
  
 }
-.profilePictureCircle{
-}
+
 .profilePictureCircle img{
 object-fit: cover;
-height: 50px;
-width: 50px;
+height: 35px;
+width: 35px;
 border-radius: 100%;
 /* max-width: 25%;
 max-height: 25%; */
@@ -417,7 +429,7 @@ box-shadow: 0px 0px 5px rgba(106, 106, 106, 0.5);
     
 }
 .card-image img{
-    border-radius: 30px;
+    border-radius: 10px;
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -439,6 +451,9 @@ hr{
 .postDescription{
     font-size: 11px;
 }
+#homescreenUsername{
+    color: black;
+}
 #userLocation{
     font-size: 10px;
 }
@@ -449,9 +464,10 @@ hr{
     margin-bottom: 10px;
 }
 .post .card-content .likeShare img {
+    margin-top: 10px;
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 15px;
     cursor: pointer;
 }
 .post .card-content .commentSection {
@@ -460,6 +476,7 @@ hr{
     font-size: 14px;
 
     color: #ffffff;
+    width: 100%;
     margin-top: 10px;
     outline: none;
     background-color: #5c5c5c;
