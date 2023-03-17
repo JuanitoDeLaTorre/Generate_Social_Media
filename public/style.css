@@ -594,12 +594,12 @@ hr{
 
 
 .userInfo {
-    /* display: flex;
-    flex-direction: column; */
     width: 100%;
-    align-items: center;
-    justify-content: space-between;
     margin-left: 25px;
+}
+
+.userItem a {
+    margin-left: 50px;
 }
 
 .userItem {
@@ -607,10 +607,17 @@ hr{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 0 10px;
-    max-width: 400px;
+    padding: 10px 0;
+    max-width: 1200px;
 }
 
-.totalPosts {
-    text-align: right;
+.postCount {
+    margin-right: 95px;
+
 }
+/* .totalPosts {
+    align-items: center;
+    text-align: right;
+    margin-right: 95px;
+    
+} */

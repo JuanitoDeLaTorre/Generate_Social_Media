@@ -121,7 +121,9 @@ router.get('/allUsers', async (req, res, next) => {
             const postCount = await Post.countDocuments({ user: user._id });
             usersPostCount.push({ ...user.toObject(), postCount });
         }
-
+        console.log('Before Sorting', usersPostCount);
+        usersPostCount.sort((a, b) => b.postCount - a.postCount);
+        console.log('After sorting', usersPostCount);
         res.render('userList.ejs', { users: usersPostCount, currentUser: req.session.currentUser });
     } catch(error){
         console.log(error);
