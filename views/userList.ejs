@@ -4,8 +4,9 @@
     <div class="mainWrapper">
         <%- include('./partials/sideNav.ejs', { user: currentUser }) %>
 
+        
         <div class="userInfo">
-            <h1>All Users</h1>
+            <h3 style = "text-align: center;">ALL USERS</h3>
             <% users.forEach((user) => { %>
                 <div class="userWrapper">
                     <img src="<%= user.profilePic %>" style = "height: 30px; width: 30px; border-radius: 100%; object-fit: cover;" alt="<%= user.username %>">
@@ -14,7 +15,7 @@
                     
                     </div>
                     <p>Total Posts: <%= user.postCount %></p>
-                    <hr>
+                    <hr id="listBreak">
                 </div>
                 
             <% }); %>
