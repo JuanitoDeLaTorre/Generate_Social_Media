@@ -87,7 +87,7 @@
         const ex = document.querySelectorAll("#exOut")
         const delPostButton = document.querySelector("#deletePostButton")
         const delPost = document.querySelectorAll("#deletePost")
-        const updatePost = document.querySelectorAll("#updatePost")
+        // const updatePost = document.querySelectorAll("#updatePost")
 
 
         for(let i = 0; i < photoBlock.length; i++) {
@@ -128,9 +128,10 @@
 
         delPostButton.addEventListener("click",()=> {
             console.log("CLICKED")
+            console.log(delPost.length)
             for(let i = 0; i < delPost.length; i++){
                 delPost[i].style.display = "flex"
-                updatePost[i].stye.display = "flex"
+                // updatePost[i].style.display = "flex"
             }
         })
 
