@@ -133,15 +133,17 @@ router.get('/profile/:username', async (req,res,next)=> {
     try {
         //change to accept finding posts from any user, not just the one logged in
         const profileUser = await User.findOne({username: req.params.username})
-        const allPosts = [...await Post.find({user: profileUser})]
-        const newPosts = await Post.find({user:profileUser}).populate('user').exec()
+        // const allPosts = [...await Post.find({user: profileUser})]
+        const newPosts = await Post.find({user:profileUser}).populate('user comments.user').exec()
 
-        // const NewPosts2 = await Post.find({user:profileUser}).comments.user.populate('user').exec()
+        for(let i = 0; i < newPosts.length; i++) {
+            for(let j = 0; j < newPosts[i].comments.length; j++) {
+                console.log(newPosts[i].comments[j])
+            }
+        }
+        // console.log(newPosts[1].comments[0])
 
-        console.log(newPosts[2])
-        // console.log(NewPosts2[2].comments[0])
-
-        res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: newPosts})
+        res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: newPosts })
     } catch(err) {
         console.log(err)
         next()
@@ -172,7 +174,6 @@ router.post('/postComment/:postID', async (req,res,next)=> {
     try {
         const comment = req.body
         comment.user = req.session.currentUser?.id
-        // comment.post = req.params.postID
         console.log(comment)
 
         const postToUpdate = await Post.findById(req.params.postID)

@@ -51,21 +51,22 @@
 
                 </div>
                 <ul style = "list-style: none;">
-                    <% photos[i].comments.forEach((comment)=> { %>
+                    <% for(let j = 0; j < photos[i].comments.length; j++) { %>
+                        
                         <div class = "commentContent" style = "display: flex; align-items: center;">
                             
-                            <img id = "profilePicture" style = "transform: scale(50%); margin-bottom: 0" src="<%= photos[i].user.profilePic %>" alt="">
+                            <img id = "profilePicture" style = "transform: scale(50%); margin-bottom: 0" src="<%= photos[i].comments[j].user.profilePic %>" alt="">
                             
                             <div style = "display: flex; flex-direction: column;">
-                                <li><%= comment.content %></li>
-                                <li><p style = "margin:3px; font-size: 0.8em;">- <%= photos[i].user%></p></li>
-                                <li><span style = "margin-left: 3px; font-size: 0.7em; color: rgb(189, 189, 189)">(<%= comment.created.toLocaleString() %>)</span></li>
+                                <li><%= photos[i].comments[j].content %></li>
+                                <li><p style = "margin:3px; font-size: 0.8em;">- <%= photos[i].comments[j].user.username %></p></li>
+                                <li><span style = "margin-left: 3px; font-size: 0.7em; color: rgb(189, 189, 189)">(<%= photos[i].comments[j].created.toLocaleString() %>)</span></li>
                             </div>
                             
                         </div>
                         
                         <hr style = "margin: 5px">
-                    <% }) %>
+                    <% } %>
                 </ul>
                 
                 <form method = "POST" action="/postComment/<%= photos[i]._id%>">
