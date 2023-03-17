@@ -482,7 +482,7 @@ form input, form label{
     align-items: center;
     transition: all 200ms ease-in-out;
     z-index: 100;
-    animation: 2s twist linear infinite;
+    animation: 1s twist linear infinite;
 
 }
 

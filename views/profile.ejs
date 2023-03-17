@@ -52,15 +52,25 @@
                 </div>
                 <ul style = "list-style: none;">
                     <% photos[i].comments.forEach((comment)=> { %>
-                        <li><%= comment.content %></li>
-                        <li><span style = "margin-left: 15px; font-size: 0.7em; color: rgb(189, 189, 189)">- <%= comment.created.toLocaleString() %></span></li>
-                        <hr>
+                        <div class = "commentContent" style = "display: flex; align-items: center;">
+                            
+                            <img id = "profilePicture" style = "transform: scale(50%); margin-bottom: 0" src="<%= photos[i].user.profilePic %>" alt="">
+                            
+                            <div style = "display: flex; flex-direction: column;">
+                                <li><%= comment.content %></li>
+                                <li><p style = "margin:3px; font-size: 0.8em;">- <%= photos[i].user%></p></li>
+                                <li><span style = "margin-left: 3px; font-size: 0.7em; color: rgb(189, 189, 189)">(<%= comment.created.toLocaleString() %>)</span></li>
+                            </div>
+                            
+                        </div>
+                        
+                        <hr style = "margin: 5px">
                     <% }) %>
                 </ul>
                 
                 <form method = "POST" action="/postComment/<%= photos[i]._id%>">
                     <input type="text" id = "commentInput" style = "display: inline; margin-left: 8%;" name = "content">
-                    <button class = "darkButton" style = "height: 30px;" type = "submit">Post</button>
+                    <button class = "darkButton" style = "height: 30px;" type = "submit">Post</button><span><button class = "darkButton">Like</button></span>
                 </form>
              </div>
              <% } %>

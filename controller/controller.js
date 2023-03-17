@@ -134,57 +134,14 @@ router.get('/profile/:username', async (req,res,next)=> {
         //change to accept finding posts from any user, not just the one logged in
         const profileUser = await User.findOne({username: req.params.username})
         const allPosts = [...await Post.find({user: profileUser})]
+        const newPosts = await Post.find({user:profileUser}).populate('user').exec()
 
-        const allComments = allPosts.comments
+        // const NewPosts2 = await Post.find({user:profileUser}).comments.user.populate('user').exec()
 
+        console.log(newPosts[2])
+        // console.log(NewPosts2[2].comments[0])
 
-
-        // console.log(allPosts)
-
-        // const allComments = []
-        // for(let i = 0; i < allPosts.length; i++){
-        //     allComments.push([...await Comments.find({ post:allPosts[i]._id} ).populate('user').exec()])
-        // }
-
-        // const allComments = await Comments.find({ post:allPosts[i]._id} ).populate('user').exec()
-        console.log(allPosts)
-        // console.log("BREAK")
-        // console.log(await User.findOne({_id:allComments[0][0].user}))
-        // console.log(allComments[0][0].user)
-        // console.log("BREAK")
-
-        // for(let i = 0; i < allComments.length; i++) {
-        //     for(let j = 0; j < allComments[i].length; j++){
-        //         const fullUser = await User.findOne({_id:allComments[i][j].user})
-        //         allComments[i][j].username = fullUser.username
-                
-        //     }
-        // }
-
-        // console.log(allComments)
-        // allComments[0][1].username = "AliColak"
-
-        // const testList = [
-        //     [{
-        //         name: "swagger among the starlight"
-        //     },
-        //     [{
-        //         name: "swagger among the starlight"
-        //     }]
-        // ],
-        //     [{
-        //         name: "swagger among the starlight"
-        //     }]
-        // ]
-            
-        //   console.log(testList)
-        //   testList[0][0].username = "AliColak"
-        //   console.log(testList)
-
-
-        // console.log(allComments)
-
-        res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: allPosts, comments:allComments})
+        res.render('profile.ejs', { user: req.session.currentUser?.username, profileUser: profileUser , photos: newPosts})
     } catch(err) {
         console.log(err)
         next()
@@ -220,6 +177,8 @@ router.post('/postComment/:postID', async (req,res,next)=> {
 
         const postToUpdate = await Post.findById(req.params.postID)
         postToUpdate.comments.push(comment)
+
+        console.log(postToUpdate)
 
         await postToUpdate.save()
 
