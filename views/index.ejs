@@ -28,8 +28,14 @@
                   <img src="/images/whiteShareButton.png" alt="" srcset="">
                 </div>
                 <h5> <%= posts[i].created %> </h5>
-                <p class="postDescription"> demo description </p>
-                <input type="text" placeholder="Add a comment!" class="commentSection"/>
+                <% posts[i].comments.forEach((comment)=> { %> 
+                <p> <%= comment.content %> </p>
+                <% }) %>
+                <p class="postDescription"> title </p>
+                <form method="POST" action="/postComment">
+                    <input type="text" placeholder="Add a comment!" class="commentSection"/>
+                    <button> Post </button>
+                </form>
               </div>
             </div>
           <% }; %>
