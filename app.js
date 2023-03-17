@@ -155,6 +155,10 @@ app.get('/', async (req,res, next)=> {
 //     }
 // })
 
+app.get('/*', (req, res) => {
+    res.render('404.ejs',{ user: req.session.currentUser?.username});
+})
+
 app.listen(PORT, (req,res)=> {
     console.log(`Listening on port ${PORT}`)
 })
