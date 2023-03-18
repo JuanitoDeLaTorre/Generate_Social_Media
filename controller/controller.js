@@ -32,6 +32,9 @@ router.use(
     })
 )
 
+// router.get('/profile/*', (req,res) => {
+//     res.render("404.ejs", {user: req.session.currentUser?.username})
+// })
 
 
 router.get('/seed', async (req, res) => {
@@ -230,4 +233,6 @@ router.put('/updatePhoto/:postID', async (req,res,next)=> {
         console.log(err)
     }
 })
+
+
 module.exports = router

@@ -499,8 +499,11 @@ form input, form label{
     height: 15px;
     width: 15px;
     border-radius: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
     background-color: rgb(195, 195, 195);
-    color: black;
+    color: rgb(255, 255, 255);
     padding: 5px;
     cursor: pointer;
     display: none;
@@ -508,12 +511,12 @@ form input, form label{
     align-items: center;
     transition: all 200ms ease-in-out;
     z-index: 100;
-    animation: 1s twist linear infinite;
 }
 
 #updatePost:hover {
-    transform: scale(106%);
+    transform: scale(108%);
     background-color: white;
+    color: black;
 }
 
 
