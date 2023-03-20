@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                                 <div class="post-info">
-                                    <p class="title">Picture Title</p>
+                                    <p class="title"> <%= posts[i].photoTitle %> </p>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -50,6 +50,7 @@
                                         <div class="comment">
                                             <% posts[i].comments.forEach((comment)=> { %>
                                                 <p>
+                                                    -
                                                     <%= comment.content %>
                                                 </p>
                                                 <% }); %>
@@ -60,7 +61,7 @@
                                     </div>
                                     <div class="comment-form">
                                         <form method="POST" action="/postComment/<%= posts[i]._id %>">
-                                            <input type="text" placeholder="Add a comment!" class="commentSection"
+                                            <input type="text" placeholder="Add a comment!" class="comment"
                                                 name="content" />
 
                                             <!-- <textarea placeholder="Add a comment"></textarea> -->

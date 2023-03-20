@@ -562,6 +562,7 @@ form input, form label{
     max-width: 600px;
     background-color: rgb(27, 27, 27);    border-radius: 10px;
     margin-bottom: 20px;
+    border-radius: 20px;
   }
   .card-header {
     display: flex;
@@ -676,6 +677,8 @@ form input, form label{
   }
   .comment-section {
     margin-top: 10px;
+    width: 100%;
+
   }
   .comment {
     margin-bottom: 5px;
@@ -689,7 +692,7 @@ form input, form label{
   }
   .comment-toggle button {
     background-color: transparent;
-    color: #3B5998;
+    color: #c51f19;
     border: none;
     cursor: pointer;
   }
@@ -697,20 +700,30 @@ form input, form label{
     margin-top: 10px;
     display: flex;
     align-items: center;
+
   }
   .comment-form textarea {
     flex-grow: 1;
     resize: none;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #ccc;
     font-size: 0.9em;
     margin-right: 5px;
   }
+
   
-  
-  
-  
-  
-  
-  
+  .comment-form form {
+    display: flex;
+    width: 100%;
+  }
+  .comment-form input {
+    flex-grow: 1;
+    width: 0;
+    margin-right: 5px;
+  }
+  .comment-form button {
+    width: auto;
+  }
+  .comment-form::placeholder {
+    color: #8e8e8e;
+}
