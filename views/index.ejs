@@ -35,11 +35,11 @@
                                     <img src="<%= posts[i].content %>" alt="">
                                     <div class="image-overlay">
                                         <div class="likes-count">
-                                            <p class="count">100 </p>
+                                            <p class="count"><%= posts[i].likes %> </p>
                                             <p class="label">Likes</p>
                                         </div>
                                         <div class="comments-count">
-                                            <p class="count">50 </p>
+                                            <p class="count"><%= posts[i].comments.length%>  </p>
                                             <p class="label">Comments</p>
                                         </div>
                                     </div>
