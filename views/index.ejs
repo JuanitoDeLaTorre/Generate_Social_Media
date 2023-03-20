@@ -46,12 +46,13 @@
                                 </div>
                                 <div class="likeShare">
                                     <img id="likeButton" src="/images/instagramLikeButton.png" alt="" srcset="">
-                                    <img src="/images/whiteShareButton.png" alt="" srcset="">
+                                    <!-- <img src="/images/whiteShareButton.png" alt="" srcset=""> -->
                                 </div>
                                 <div class="likes-comments">
                                     <!-- <img id="likeButton" src="/images/instagramLikeButton.png" alt="" srcset=""> -->
                                     <div class="comment-section">
-                                        <div class="comment">
+                                        <!-- <div class="comment">
+
                                             <% posts[i].comments.forEach((comment)=> { %>
                                                 
                                                 <p> -
@@ -61,7 +62,16 @@
 
                                         </div>
                                         <div class="comment-toggle">
-                                        </div>
+                                        </div> -->
+                                            <details style="margin-top: 30px; ">
+                                            <summary>All Comments</summary>
+                                            <ul>
+                                            <% posts[i].comments.forEach((comment)=> { %>
+                                            <li> <%= comment.content %> </li>
+                                            <% }); %>
+
+                                            </ul>
+                                            </details>
                                     </div>
                                     <div class="comment-form">
                                         <form method="POST" action="/postComment/<%= posts[i]._id %>">
@@ -69,7 +79,7 @@
                                                 name="content" />
 
                                             <!-- <textarea placeholder="Add a comment"></textarea> -->
-                                            <button>Submit</button>
+                                            <button class="darkButton" style="margin-top: 12px">Submit</button>
                                         </form>
 
                                     </div>
