@@ -1,0 +1,40 @@
+<%- include('./head.ejs') %>
+
+<header>
+    <a href="http://localhost:4000/"><h2 style = "text-shadow: 0px 0px 5px white;">GENERATE</h2></a>
+    <div class="search">
+        <input type="text" id = "searchBar" placeholder="Search accounts...">
+        <a href=""><img src="/images/searchlogo.png" alt="magnifying glass search logo"></a>
+        <a href="" id = "searchHref"><button id = "hiddenButton"></button></a>
+        <!-- //FIGURE OUT WHERE TO PUT THIS -->
+        <script src="/public/pageActions.js"></script> 
+    </div>
+    <div id = "right">
+        <% if(!user) { %>
+            <a href="http://localhost:4000/signUp"><button class = "magentaButton">Sign Up</button></a>
+            <a href="http://localhost:4000/signIn"><button class = "magentaButton">Log In</button></a>
+        <% } else { %>
+            <a href="http://localhost:4000/newContent"><button id = "upload">+ Upload</button></a>
+            <a href="http://localhost:4000/profile/<%= user %>"><div class = "profile"><%= user[0] %></div></a>
+            <a href="http://localhost:4000/logOut"><button class = "darkButton">Log Out</button></a>
+
+        <% } %>
+        <a href="http://localhost:4000/signIn"><img id = "options" src="/images/options.png" alt="search option dots"></a>
+    </div>
+</header>
+<script>
+    const input = document.querySelector("#searchBar")
+    const hiddenButton = document.querySelector("#hiddenButton")
+    let href = document.querySelector("#searchHref")
+
+    window.addEventListener("keypress", (e)=> {
+        
+        href.href = "http://localhost:4000/profile/" + input.value
+        if(e.key === "Enter") {
+            // console.log(input.innerText)
+            href.href = "http://localhost:4000/profile/" + input.value
+            hiddenButton.click()
+        }
+    })
+</script>
+

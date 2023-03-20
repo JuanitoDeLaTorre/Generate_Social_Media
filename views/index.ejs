@@ -1,0 +1,97 @@
+<%- include('./partials/header.ejs') %>
+
+    <body>
+        <div class="mainWrapper">
+
+            <!-- side nav and suggested accounts/tags -->
+            <%- include('./partials/sideNav.ejs', { user:user }) %>
+
+                <div class="mainContent">
+                    <!-- POST CARD  -->
+
+                    <!-- EJS -->
+                    <% for(let i=0; i<posts.length; i++) { %>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="user-info">
+                                    <img src="<%=userObjects[i].profilePic%>" alt="" srcset="">
+                                    <div>
+                                        <h3 class="username">
+                                            <a href="http://localhost:4000/profile/<%=userObjects[i].username%>">
+                                                <%= userObjects[i].username %>
+                                            </a>
+                                        </h3>
+                                        <p class="location">
+                                            <%= posts[i].photoLocation %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="post-info">
+                                    <p class="title"> <%= posts[i].photoTitle %> </p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="image-container">
+                                    <img src="<%= posts[i].content %>" alt="">
+                                    <div class="image-overlay">
+                                        <div class="likes-count">
+                                            <p class="count"><%= posts[i].likes %> </p>
+                                            <p class="label">Likes</p>
+                                        </div>
+                                        <div class="comments-count">
+                                            <p class="count"><%= posts[i].comments.length%>  </p>
+                                            <p class="label">Comments</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="likeShare">
+                                    <img id="likeButton" src="/images/instagramLikeButton.png" alt="" srcset="">
+                                    <!-- <img src="/images/whiteShareButton.png" alt="" srcset=""> -->
+                                </div>
+                                <div class="likes-comments">
+                                    <!-- <img id="likeButton" src="/images/instagramLikeButton.png" alt="" srcset=""> -->
+                                    <div class="comment-section">
+                                        <!-- <div class="comment">
+
+                                            <% posts[i].comments.forEach((comment)=> { %>
+                                                
+                                                <p> -
+                                                    <%= comment.content %>
+                                                </p>
+                                                <% }); %>
+
+                                        </div>
+                                        <div class="comment-toggle">
+                                        </div> -->
+                                            <details style="margin-top: 30px; ">
+                                            <summary>All Comments</summary>
+                                            <ul>
+                                            <% posts[i].comments.forEach((comment)=> { %>
+                                            <li> <%= comment.content %> </li>
+                                            <% }); %>
+
+                                            </ul>
+                                            </details>
+                                    </div>
+                                    <div class="comment-form">
+                                        <form method="POST" action="/postComment/<%= posts[i]._id %>">
+                                            <input type="text" placeholder="Add a comment!" class="comment"
+                                                name="content" />
+
+                                            <!-- <textarea placeholder="Add a comment"></textarea> -->
+                                            <button class="darkButton" style="margin-top: 12px">Submit</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <% }; %>
+                </div>
+
+
+        </div>
+
+    </body>
