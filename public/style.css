@@ -526,6 +526,9 @@ form input, form label{
     100%{transform: rotate(15deg);}
 }
 
+<<<<<<< HEAD
+/* SEAN: for User List */
+=======
 
 
 .post{
@@ -621,6 +624,7 @@ hr{
 }
 
 
+>>>>>>> df259d77337a836afae4a4b4b4aba6e56634b648
 .userInfo {
     width: 100%;
     margin-left: 25px;
@@ -649,3 +653,175 @@ hr{
     margin-right: 95px;
     
 } */
+
+/* POST CARD*/
+.card {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgb(27, 27, 27);    border-radius: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  .user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .user-info div {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-header h3,
+  .card-header p {
+    margin: 0;
+    font-size: 1em;
+  }
+  .post-info {
+    text-align: right;
+  }
+  .card-body {
+    padding: 10px;
+    background-color: rgb(27, 27, 27);    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    /* height: 450px;
+    width: 450px;
+    z-index: 1; */
+  }
+  
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+
+  
+  }
+  
+  .image-container:hover .image-overlay {
+    opacity: 1;
+  }
+  .card-body img {
+    margin-left:  auto;
+    margin-right: auto;
+    object-position: center;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    position: absolute;
+
+    
+    
+  
+  }
+  .image-overlay {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 10px);
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .likes-count,
+  .comments-count{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.9em;
+    margin-right: 150px;
+  
+  }
+  .likes-count {
+    margin-left: 150px;
+  }
+  .likes-count .label,
+  .comments-count .label {
+    margin-left: 5px;
+  }
+  .like-button {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #3B5998;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  .comment-section {
+    margin-top: 10px;
+    width: 100%;
+
+  }
+  .comment {
+    margin-bottom: 5px;
+  }
+  .comment-text {
+    margin: 0;
+  }
+  .comment-toggle {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .comment-toggle button {
+    background-color: transparent;
+    color: #c51f19;
+    border: none;
+    cursor: pointer;
+  }
+  .comment-form {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+  }
+  .comment-form textarea {
+    flex-grow: 1;
+    resize: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-right: 5px;
+  }
+
+  
+  .comment-form form {
+    display: flex;
+    width: 100%;
+  }
+  .comment-form input {
+    flex-grow: 1;
+    width: 0;
+    margin-right: 5px;
+  }
+  .comment-form button {
+    width: auto;
+  }
+  .comment-form::placeholder {
+    color: #8e8e8e;
+}

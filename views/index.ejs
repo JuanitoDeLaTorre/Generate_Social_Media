@@ -7,118 +7,77 @@
             <%- include('./partials/sideNav.ejs', { user:user }) %>
 
                 <div class="mainContent">
-                    <!--  -->
+                    <!-- POST CARD  -->
+
+                    <!-- EJS -->
                     <% for(let i=0; i<posts.length; i++) { %>
-                        <div class="post">
-                            <div class="profilePicUsername">
-                                <div class="profilePictureCircle"> <img src="<%=userObjects[i].profilePic%>" alt=""
-                                        srcset=""></div>
-                                <a href="http://localhost:4000/profile/<%=userObjects[i].username%>">
-                                    <h5 id="homescreenUsername">
-                                        <%= userObjects[i].username %>
-                                    </h5>
-                                </a>
-                            </div>
-                            <p id="userLocation">
-                                <%= posts[i].photoLocation %>
-                            </p>
-                            <div class="card-image">
-                                <img src="<%= posts[i].content %>" alt="">
-                            </div>
-                            <div class="card-content">
-                                <div class="likeShare">
-                                    <img id="likeButton" src="/images/instagramLikeButton.png" alt="" srcset="">
-                                    <img src="/images/whiteShareButton.png" alt="" srcset="">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="user-info">
+                                    <img src="<%=userObjects[i].profilePic%>" alt="" srcset="">
+                                    <div>
+                                        <h3 class="username">
+                                            <a href="http://localhost:4000/profile/<%=userObjects[i].username%>">
+                                                <%= userObjects[i].username %>
+                                            </a>
+                                        </h3>
+                                        <p class="location">
+                                            <%= posts[i].photoLocation %>
+                                        </p>
+                                    </div>
                                 </div>
-                                <h5>
-                                    <%= posts[i].created %>
-                                </h5>
-                                <% posts[i].comments.forEach((comment) => { %>
-                                    <p>
-                                        <%= comment.content %>
-                                    </p>
-                                    <% }); %>
+                                <div class="post-info">
+                                    <p class="title"> <%= posts[i].photoTitle %> </p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="image-container">
+                                    <img src="<%= posts[i].content %>" alt="">
+                                    <div class="image-overlay">
+                                        <div class="likes-count">
+                                            <p class="count"><%= posts[i].likes %> </p>
+                                            <p class="label">Likes</p>
+                                        </div>
+                                        <div class="comments-count">
+                                            <p class="count"><%= posts[i].comments.length%>  </p>
+                                            <p class="label">Comments</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="likes-comments">
+                                    <!-- <img id="likeButton" src="/images/instagramLikeButton.png" alt="" srcset=""> -->
+                                    <div class="comment-section">
+                                        <div class="comment">
+                                            <% posts[i].comments.forEach((comment)=> { %>
+                                                <p>
+                                                    -
+                                                    <%= comment.content %>
+                                                </p>
+                                                <% }); %>
 
-                                        <p class="postDescription"> title </p>
+                                        </div>
+                                        <div class="comment-toggle">
+                                        </div>
+                                    </div>
+                                    <div class="comment-form">
                                         <form method="POST" action="/postComment/<%= posts[i]._id %>">
-
-
-                                            <input type="text" placeholder="Add a comment!" class="commentSection"
+                                            <input type="text" placeholder="Add a comment!" class="comment"
                                                 name="content" />
-                                            <button> Post </button>
+
+                                            <!-- <textarea placeholder="Add a comment"></textarea> -->
+                                            <button>Submit</button>
                                         </form>
+
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>
                         <% }; %>
-
-
-
-
-                            <!-- <div class="contentTile">
-                <div class="suggestedAccount">
-                    <img src="https://media.allure.com/photos/63dbe74dbaff0a1d977a4243/16:9/w_2560%2Cc_limit/selena%2520gomez%2520makeup-free%2520selfie%25202023.jpg" style = "height: 60px; width: 60px; border-radius: 100%; object-fit: cover;" alt="" >
-                    <div id="userName" style = "display: flex; flex-direction: column; color: white">
-                        <p><strong>selenagomez ✅</strong><span style = "color: rgb(194, 194, 194); margin-left: 15px;">Selena Gomez</span></p> 
-                        <p style = "color: grey; font-size: 0.9em;">Haha my time at Disney sure was wild...</p>
-                        <a><p style = "font-size: 0.85em;">🎵 Warm Animals - Sure Sure</p></a>
-                    </div>
-                    <button class="darkButton" id = "follow">Follow</button>
                 </div>
-                <img id = "videoPlaceholder" src="https://assets.teenvogue.com/photos/588b65ffabe091875c2620ef/2:3/w_1332,h_1998,c_limit/GettyImages-108726293.jpg" alt="">
-                
-                <ul class = "interactIcons">
-                    <div class="icons">
-                        <li>
-                            <img src="/images/like.png" alt="">
-                            <p>8642</p>
-                        </li>
-                        <li><img src="/images/comment.png" alt=""><p>58</p></li>
-                        <li><img src="/images/share.png" alt=""><p>3</p></li>
-                    </div>
-                </ul>
-                <hr>
-            </div> -->
 
-                            <!-- <div class="contentTile">
-                <div class="suggestedAccount">
-                    <img src="https://api.time.com/wp-content/uploads/2014/11/nick-offerman.jpg" style = "height: 60px; width: 60px; border-radius: 100%; object-fit: cover;" alt="" >
-                    <div id="userName" style = "display: flex; flex-direction: column; color: white">
-                        <p><strong>nickoffermanofficial ✅</strong><span style = "color: rgb(194, 194, 194); margin-left: 15px;">Nick Offerman</span></p> 
-                        <p style = "color: grey; font-size: 0.9em;">Pretty gay, ngl..</p>
-                        <a><p style = "font-size: 0.85em;">🎵 i love you - Billie Eilish</p></a>
-                    </div>
-                    <button class="darkButton" id = "follow">Follow</button>
-                </div>
-                <img id = "videoPlaceholder" src="https://static.independent.co.uk/2023/01/31/10/newFile-9.jpg" alt="">
-                
-                <ul class = "interactIcons">
-                    <div class="icons">
-                        <li>
-                            <img src="/images/like.png" alt="">
-                            <p>9042</p>
-                        </li>
-                        <li><img src="/images/comment.png" alt=""><p>69</p></li>
-                        <li><img src="/images/share.png" alt=""><p>420</p></li>
-                    </div>
-                </ul>
-                <hr>
-            </div> -->
-                </div>
+
         </div>
-        <!-- <script> 
-    const likeButton = document.getElementById("likeButton");
-    let isLiked = false;
 
-    likeButton.addEventListener("click", () => {
-        // alert("Hello");
-      if (isLiked) {
-        likeButton.src = "instagramLikeButton.png";
-        isLiked = false;
-      } else {
-        likeButton.src = "instagramLikeButtonFilled.png";
-        isLiked = true;
-      }
-    });
-    </script> -->
     </body>
