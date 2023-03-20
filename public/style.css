@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap');
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgb(18,18,18);
+    background-color: rgb(18, 18, 18);
     font-family: "Montserrat";
     color: white;
 }
@@ -25,7 +26,7 @@ header {
     height: 70px;
     width: auto;
     display: flex;
-    background-color: rgb(18,18,18);
+    background-color: rgb(18, 18, 18);
     justify-content: space-around;
     color: white;
     align-content: center;
@@ -39,7 +40,7 @@ header {
 .search {
     width: 300px;
     height: 25px;
-    background-color: rgb(47,47,47);
+    background-color: rgb(47, 47, 47);
     border-radius: 30px;
     padding: 10px;
     display: flex;
@@ -87,7 +88,7 @@ hr {
 #upload {
     height: 40px;
     width: 120px;
-    background-color: rgb(47,47,47);
+    background-color: rgb(47, 47, 47);
     border-radius: 5px;
     border: none;
     color: white;
@@ -192,7 +193,7 @@ hr {
 }
 
 
-.pages span:hover{
+.pages span:hover {
     color: #EF2950;
 }
 
@@ -203,7 +204,7 @@ hr {
 }
 
 .sideNav p {
-    color:rgb(129, 129, 129);
+    color: rgb(129, 129, 129);
 }
 
 .darkButton {
@@ -231,8 +232,8 @@ strong {
 }
 
 .suggestedAccount {
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
     gap: 20px;
 }
 
@@ -294,7 +295,7 @@ strong {
     margin-left: 0px;
     padding-left: 0px;
     position: relative;
-    
+
 }
 
 .interactIcons li img {
@@ -323,7 +324,7 @@ strong {
     margin: 0px 0px 0px 0px;
     text-align: center;
     font-size: 0.82em;
-    color:rgb(226, 226, 226)
+    color: rgb(226, 226, 226)
 }
 
 #signUpForm {
@@ -331,7 +332,8 @@ strong {
 
 }
 
-form input, form label{
+form input,
+form label {
     display: block;
     margin: 15px;
 }
@@ -399,8 +401,8 @@ form input, form label{
     opacity: 0;
     display: block;
     transition: all 300ms ease-in-out;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(205,205,205,0) 100%);
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(205, 205, 205, 0) 100%);
 }
 
 #photoTitleOverlay {
@@ -521,17 +523,22 @@ form input, form label{
 
 
 @keyframes twist {
-    0%{transform: rotate(15deg)}
-    50%{transform: rotate(-15deg)}
-    100%{transform: rotate(15deg);}
+    0% {
+        transform: rotate(15deg)
+    }
+
+    50% {
+        transform: rotate(-15deg)
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
 }
 
-<<<<<<< HEAD
+
 /* SEAN: for User List */
-=======
-
-
-.post{
+.post {
     border-radius: 30px;
     padding: 15px 0px 15px 40px;
     max-height: fit-content;
@@ -539,61 +546,67 @@ form input, form label{
     background-color: rgb(27, 27, 27);
     margin: 50px 0px 30px 50px;
     box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.2);
-    
+
 }
-.profilePicUsername{
+
+.profilePicUsername {
     display: flex;
     align-items: center;
 
 
- 
-}
-/* .profilePictureCircle{
-} */
-.profilePictureCircle img{
-object-fit: cover;
-height: 50px;
-width: 50px;
-border-radius: 100%;
-/* max-width: 25%;
-max-height: 25%; */
-margin-right: 10px;
-box-shadow: 0px 0px 5px rgba(106, 106, 106, 0.5);
 
 }
-.card-image{
+
+/* .profilePictureCircle{
+} */
+.profilePictureCircle img {
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    /* max-width: 25%;
+max-height: 25%; */
+    margin-right: 10px;
+    box-shadow: 0px 0px 5px rgba(106, 106, 106, 0.5);
+
+}
+
+.card-image {
     /* border: solid rgb(255, 255, 255) 4px; */
     /* margin: 40px; */
     width: 500px;
     height: 500px;
     position: relative;
 
-    
+
 }
-.card-image img{
+
+.card-image img {
     border-radius: 30px;
     height: 100%;
     width: 100%;
     object-fit: cover;
     overflow-clip-margin: content-box;
-	overflow: clip;
-    
+    overflow: clip;
+
 
 
 }
 
-hr{
+hr {
     width: 90%;
 }
 
-.likeShare{
+.likeShare {
     display: flex;
 
 }
-.postDescription{
+
+.postDescription {
     font-size: 11px;
 }
-#userLocation{
+
+#userLocation {
     font-size: 10px;
 }
 
@@ -602,12 +615,14 @@ hr{
     align-items: center;
     margin-bottom: 10px;
 }
+
 .post .card-content .likeShare img {
     width: 50px;
     height: 50px;
     margin-right: 10px;
     cursor: pointer;
 }
+
 .post .card-content .commentSection {
     border: none;
     padding: 10px;
@@ -619,12 +634,12 @@ hr{
     background-color: #5c5c5c;
     border-radius: 5px;
 }
+
 .post .card-content .commentSection::placeholder {
     color: #8e8e8e;
 }
 
 
->>>>>>> df259d77337a836afae4a4b4b4aba6e56634b648
 .userInfo {
     width: 100%;
     margin-left: 25px;
@@ -647,6 +662,7 @@ hr{
     margin-right: 95px;
 
 }
+
 /* .totalPosts {
     align-items: center;
     text-align: right;
@@ -658,11 +674,15 @@ hr{
 .card {
     width: 100%;
     max-width: 600px;
-    background-color: rgb(27, 27, 27);    border-radius: 10px;
+    background-color: rgb(27, 27, 27);
+    border-radius: 10px;
     margin-bottom: 20px;
     border-radius: 20px;
-  }
-  .card-header {
+    margin-top: 15px;
+    padding: 20px;
+}
+
+.card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -670,32 +690,39 @@ hr{
     padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-  }
-  .user-info {
+}
+
+.user-info {
     display: flex;
     align-items: center;
-  }
-  .user-info img {
+}
+
+.user-info img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-  }
-  .user-info div {
+}
+
+.user-info div {
     display: flex;
     flex-direction: column;
-  }
-  .card-header h3,
-  .card-header p {
+}
+
+.card-header h3,
+.card-header p {
     margin: 0;
     font-size: 1em;
-  }
-  .post-info {
+}
+
+.post-info {
     text-align: right;
-  }
-  .card-body {
+}
+
+.card-body {
     padding: 10px;
-    background-color: rgb(27, 27, 27);    border-bottom-left-radius: 10px;
+    background-color: rgb(27, 27, 27);
+    border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -703,22 +730,23 @@ hr{
     /* height: 450px;
     width: 450px;
     z-index: 1; */
-  }
-  
-  .image-container {
+}
+
+.image-container {
     position: relative;
     width: 100%;
     height: 0;
     padding-bottom: 100%;
 
-  
-  }
-  
-  .image-container:hover .image-overlay {
+
+}
+
+.image-container:hover .image-overlay {
     opacity: 1;
-  }
-  .card-body img {
-    margin-left:  auto;
+}
+
+.card-body img {
+    margin-left: auto;
     margin-right: auto;
     object-position: center;
     max-width: 100%;
@@ -730,11 +758,12 @@ hr{
     height: 100%;
     position: absolute;
 
-    
-    
-  
-  }
-  .image-overlay {
+
+
+
+}
+
+.image-overlay {
     opacity: 0;
     position: absolute;
     bottom: 0;
@@ -748,80 +777,114 @@ hr{
     align-items: center;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-  }
-  .likes-count,
-  .comments-count{
+}
+
+.likes-count,
+.comments-count {
     display: flex;
     align-items: center;
     color: white;
     font-size: 0.9em;
     margin-right: 150px;
-  
-  }
-  .likes-count {
+
+}
+
+.likes-count {
     margin-left: 150px;
-  }
-  .likes-count .label,
-  .comments-count .label {
+}
+
+.likes-count .label,
+.comments-count .label {
     margin-left: 5px;
-  }
-  .like-button {
+}
+
+.like-button {
     margin-top: 5px;
     padding: 10px;
     background-color: #3B5998;
     color: white;
     border: none;
     border-radius: 5px;
-  }
-  .comment-section {
+}
+
+.comment-section {
     margin-top: 10px;
     width: 100%;
 
-  }
-  .comment {
+}
+
+.comment {
     margin-bottom: 5px;
-  }
-  .comment-text {
+}
+
+.comment-text {
     margin: 0;
-  }
-  .comment-toggle {
+}
+
+.comment-toggle {
     text-align: center;
     margin-top: 10px;
-  }
-  .comment-toggle button {
+}
+
+.comment-toggle button {
     background-color: transparent;
     color: #c51f19;
     border: none;
     cursor: pointer;
-  }
-  .comment-form {
+}
+
+.comment-form {
     margin-top: 10px;
     display: flex;
     align-items: center;
 
-  }
-  .comment-form textarea {
+}
+
+.comment-form textarea {
     flex-grow: 1;
     resize: none;
     padding: 5px;
     border-radius: 5px;
     font-size: 0.9em;
     margin-right: 5px;
-  }
+}
 
-  
-  .comment-form form {
+
+.comment-form form {
     display: flex;
     width: 100%;
-  }
-  .comment-form input {
+}
+
+.comment-form input {
     flex-grow: 1;
     width: 0;
     margin-right: 5px;
-  }
-  .comment-form button {
+    background-color: rgb(77, 77, 77);
+    /* border: solid white 2px; */
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+}
+
+.comment-form button {
     width: auto;
-  }
-  .comment-form::placeholder {
+}
+
+.comment-form::placeholder {
     color: #8e8e8e;
+}
+
+.likeShare {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.likeShare img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: pointer;
 }
