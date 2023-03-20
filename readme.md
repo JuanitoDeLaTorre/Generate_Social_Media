@@ -1,2 +1,0 @@
-# Unit-2-Group-Project
-GENERATE SOCIAL MEDIA APP
