@@ -10,7 +10,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
 //CONFIG
-const PORT = 4000;
+const PORT = 3000;
 
 //CONTROLLERS
 app.use("/", require("./controller/controller.js"));
